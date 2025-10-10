@@ -30,6 +30,7 @@ img {
     color: #fff;
     overflow-y: auto;
     padding: 20px;
+    z-index: 1000;
 }
 
 #header .top #logo {
@@ -78,26 +79,25 @@ img {
     border-radius: 5px;
 }
 
-/* Social Icons */
+/* Social Icons Horizontal */
 .social-icons {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    gap: 15px;
     margin-top: 30px;
 }
 
 .social-icons li {
     list-style: none;
-    margin: 0 5px;
 }
 
 .social-icons li a {
     color: #fff;
-    font-size: 1.2rem;
     transition: color 0.3s;
 }
 
 .social-icons li a:hover {
-    color: #1da1f2; /* Light blue on hover */
+    color: #1da1f2;
 }
 
 /* Main Content */
@@ -109,6 +109,11 @@ img {
 section {
     padding: 60px 0;
     border-bottom: 1px solid #eee;
+}
+
+/* Space after headers */
+section header {
+    margin-bottom: 2em;
 }
 
 section header h2 {
@@ -129,9 +134,25 @@ section p {
     margin-bottom: 20px;
 }
 
+.image-row img:first-child {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+    display: block;
+}
+
 .image-row img {
     flex: 1 1 calc(50% - 15px);
     border-radius: 5px;
+}
+
+/* Fit images in sections */
+.fit-image {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 
 /* Buttons */
@@ -150,42 +171,14 @@ section p {
     background: #444;
 }
 
-/* Contact Form */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-form input, form textarea, form button {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-form button {
-    background: #111;
-    color: #fff;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-form button:hover {
-    background: #444;
-}
-
 /* Responsive */
 @media screen and (max-width: 1024px) {
     #header {
-        position: relative;
-        width: 100%;
-        height: auto;
-        padding: 15px 10px;
+        width: 200px;
     }
     #main {
-        margin-left: 0;
-        padding: 20px 10px;
+        margin-left: 200px;
+        padding: 30px 15px;
     }
     .image-row img {
         flex: 1 1 100%;
@@ -193,18 +186,11 @@ form button:hover {
 }
 
 @media screen and (max-width: 768px) {
-    #nav ul {
-        display: flex;
-        justify-content: space-around;
+    #header {
+        width: 180px;
     }
-    .social-icons {
-        justify-content: flex-start;
+    #main {
+        margin-left: 180px;
+        padding: 20px 10px;
     }
-}
-
-/* Fit images in sections */
-.fit-image {
-    width: 100%;
-    border-radius: 5px;
-    margin-bottom: 20px;
 }
