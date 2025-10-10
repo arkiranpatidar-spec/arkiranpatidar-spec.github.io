@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kiran Patidar</title>
     <link rel="stylesheet" href="assets/css/main.css">
-    <!-- Font Awesome for Social Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="assets/js/jquery.min.js"></script>
 </head>
 <body class="is-preload">
+
+    <!-- Mobile Menu Toggle -->
+    <a href="#" id="menu-toggle"><i class="fas fa-bars"></i></a>
 
     <!-- Sidebar -->
     <div id="header">
@@ -29,11 +32,11 @@
                 </ul>
             </nav>
 
-            <!-- Social Icons -->
+            <!-- Social Icons Horizontal -->
             <ul class="social-icons">
-                <li><a href="https://www.instagram.com/a_._ray/?hl=en" target="_blank"><i class="fab fa-instagram fa-2x"></i></a></li>
-                <li><a href="https://www.linkedin.com/in/kiranpatidar/" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></li>
-                <li><a href="https://www.facebook.com/kiran.patidar.587" target="_blank"><i class="fab fa-facebook fa-2x"></i></a></li>
+                <li><a href="https://www.instagram.com/a_._ray/?hl=en" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/kiranpatidar/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="https://www.facebook.com/kiran.patidar.587" target="_blank"><i class="fab fa-facebook"></i></a></li>
             </ul>
         </div>
     </div>
@@ -45,17 +48,19 @@
         <section id="journey" class="one">
             <div class="container">
                 <header>
-                    <h2>To inspire women to embrace creativity, learning, and strategic thinking, unlocking their full potential and living purposeful, empowered lives.</h2>
-                    <p>I share my journey and insights, guiding women to pursue passions, grow personally and professionally, and build meaningful impact.</p>
+                    <h2 style="font-style: italic; font-size: 1.2rem; margin-bottom: 20px;">“Welcome to my tiny World”</h2>
                 </header>
-                
+
+                <p style="font-style: italic;">To inspire women to embrace creativity, learning, and strategic thinking, unlocking their full potential and living purposeful, empowered lives.</p>
+                <p style="font-style: italic;">I share my journey and insights, guiding women to pursue passions, grow personally and professionally, and build meaningful impact.</p>
+
                 <p>Kiran is a seeker navigating the space between reason and meaning. An architect by heart and an MBA from IIM Kozhikode, she blends creativity with structured thinking. Fascinated by patterns, symbols, and connections, she explores herself through reading, travel, and stillness—striving not for perfection, but for wholeness, embracing both light and shadow.</p>
-                
+
                 <div class="image-row">
                     <img src="myimages/journey-main1.jpg" alt="Journey Main">
                     <img src="myimages/journey-main2.jpg" alt="Journey Secondary">
                 </div>
-                
+
                 <p>From 2014 to 2019, I immersed myself in the world of architecture, shaping spaces and ideas.<br>
                 From 2022 to 2024, I journeyed through management at IIM Kozhikode, mastering strategy and consulting, weaving creativity with structured thinking.</p>
             </div>
@@ -91,7 +96,7 @@
             </div>
         </section>
 
-        <!-- Final Contact Button -->
+        <!-- Final WhatsApp Contact -->
         <section id="final-contact" class="five">
             <div class="container" style="text-align:center; padding:50px 0;">
                 <a href="https://wa.me/916263625480?text=Hi%20Kiran,%20I%20want%20to%20know%20more%20about%20your%20updates" target="_blank" class="contact-button">
@@ -102,7 +107,20 @@
 
     </div>
 
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <!-- Sidebar Toggle Script -->
+    <script>
+    $(document).ready(function() {
+        $('#menu-toggle').click(function(e) {
+            e.preventDefault();
+            $('#header').toggleClass('active');
+        });
+        $('#nav ul li a').click(function() {
+            if ($(window).width() <= 768) {
+                $('#header').removeClass('active');
+            }
+        });
+    });
+    </script>
+
 </body>
 </html>
