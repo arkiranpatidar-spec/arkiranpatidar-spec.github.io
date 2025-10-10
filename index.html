@@ -48,11 +48,10 @@
         <section id="journey" class="one">
             <div class="container">
                 <header>
-                    <h2 style="font-style: italic; font-size: 1.2rem; margin-bottom: 20px;">“Welcome to my tiny World”</h2>
+                    <h2 style="margin-bottom:20px;">“Step Into My Life Journey”</h2>
                 </header>
 
-                <p style="font-style: italic;">To inspire women to embrace creativity, learning, and strategic thinking, unlocking their full potential and living purposeful, empowered lives.</p>
-                <p style="font-style: italic;">I share my journey and insights, guiding women to pursue passions, grow personally and professionally, and build meaningful impact.</p>
+                <p>“I strive to inspire women to embrace creativity, learning, and strategic thinking, while sharing my journey and insights to help them grow, pursue their passions, and create meaningful impact.”</p>
 
                 <p>Kiran is a seeker navigating the space between reason and meaning. An architect by heart and an MBA from IIM Kozhikode, she blends creativity with structured thinking. Fascinated by patterns, symbols, and connections, she explores herself through reading, travel, and stillness—striving not for perfection, but for wholeness, embracing both light and shadow.</p>
 
@@ -61,8 +60,7 @@
                     <img src="myimages/journey-main2.jpg" alt="Journey Secondary">
                 </div>
 
-                <p>From 2014 to 2019, I immersed myself in the world of architecture, shaping spaces and ideas.<br>
-                From 2022 to 2024, I journeyed through management at IIM Kozhikode, mastering strategy and consulting, weaving creativity with structured thinking.</p>
+                <p>“From 2014 to 2019, I developed expertise in architecture, designing impactful spaces, and from 2022 to 2024, I honed strategic and consulting skills at IIM Kozhikode, integrating creativity with structured business thinking.”</p>
             </div>
         </section>
 
@@ -100,7 +98,7 @@
         <section id="final-contact" class="five">
             <div class="container" style="text-align:center; padding:50px 0;">
                 <a href="https://wa.me/916263625480?text=Hi%20Kiran,%20I%20want%20to%20know%20more%20about%20your%20updates" target="_blank" class="contact-button">
-                    Contact me for more updates
+                    Feel free to reach out!
                 </a>
             </div>
         </section>
@@ -114,9 +112,10 @@
             e.preventDefault();
             $('#header').toggleClass('active');
         });
+
         $('#nav ul li a').click(function() {
             if ($(window).width() <= 768) {
-                $('#header').removeClass('active');
+                $('#header').removeClass('active'); // Close sidebar on mobile
             }
         });
     });
