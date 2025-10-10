@@ -83,7 +83,7 @@ img {
 .social-icons {
     display: flex;
     justify-content: flex-start;
-    gap: 15px;
+    gap: 45px; /* Increased horizontal spacing ~1.5x */
     margin-top: 30px;
 }
 
@@ -93,6 +93,7 @@ img {
 
 .social-icons li a {
     color: #fff;
+    font-size: 0.8em; /* Smaller icons */
     transition: color 0.3s;
 }
 
@@ -111,7 +112,6 @@ section {
     border-bottom: 1px solid #eee;
 }
 
-/* Space after headers */
 section header {
     margin-bottom: 2em;
 }
@@ -140,7 +140,6 @@ section p {
     height: auto;
     object-fit: cover;
     border-radius: 5px;
-    display: block;
 }
 
 .image-row img {
@@ -161,7 +160,6 @@ section p {
     background: #111;
     color: #fff;
     padding: 10px 20px;
-    margin-top: 15px;
     border-radius: 5px;
     font-weight: bold;
     transition: background 0.3s;
@@ -169,6 +167,18 @@ section p {
 
 .contact-button:hover {
     background: #444;
+}
+
+/* Mobile Menu Toggle */
+#menu-toggle {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1100;
+    color: #111;
+    font-size: 1.8rem;
+    cursor: pointer;
 }
 
 /* Responsive */
@@ -188,9 +198,20 @@ section p {
 @media screen and (max-width: 768px) {
     #header {
         width: 180px;
+        left: -180px;
+        transition: left 0.3s;
+    }
+    #header.active {
+        left: 0;
     }
     #main {
-        margin-left: 180px;
+        margin-left: 0;
         padding: 20px 10px;
+    }
+    #menu-toggle {
+        display: block;
+    }
+    .image-row img {
+        flex: 1 1 100%;
     }
 }
