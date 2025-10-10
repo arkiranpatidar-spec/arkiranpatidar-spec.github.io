@@ -40,8 +40,7 @@ img {
 
 #header .top #logo img {
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 85%;
     object-fit: cover;
     margin-bottom: 15px;
 }
@@ -83,7 +82,7 @@ img {
 .social-icons {
     display: flex;
     justify-content: flex-start;
-    gap: 45px; /* Increased horizontal spacing ~1.5x */
+    gap: 45px;
     margin-top: 30px;
 }
 
@@ -93,7 +92,7 @@ img {
 
 .social-icons li a {
     color: #fff;
-    font-size: 0.8em; /* Smaller icons */
+    font-size: 0.8em;
     transition: color 0.3s;
 }
 
@@ -135,7 +134,7 @@ section p {
 }
 
 .image-row img:first-child {
-    width: 100%;
+    width: 85%;
     max-width: 500px;
     height: auto;
     object-fit: cover;
@@ -149,7 +148,7 @@ section p {
 
 /* Fit images in sections */
 .fit-image {
-    width: 100%;
+    width: 85%;
     border-radius: 5px;
     margin-bottom: 20px;
 }
@@ -181,37 +180,46 @@ section p {
     cursor: pointer;
 }
 
-/* Responsive */
+/* Responsive Sidebar & Mobile */
 @media screen and (max-width: 1024px) {
-    #header {
-        width: 200px;
-    }
-    #main {
-        margin-left: 200px;
-        padding: 30px 15px;
-    }
-    .image-row img {
-        flex: 1 1 100%;
-    }
+    #header { width: 200px; }
+    #main { margin-left: 200px; padding: 30px 15px; }
+    .image-row img { flex: 1 1 100%; }
 }
 
 @media screen and (max-width: 768px) {
     #header {
-        width: 180px;
-        left: -180px;
-        transition: left 0.3s;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: #111;
+        padding: 50px 20px;
+        z-index: 1100;
+        transition: left 0.3s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
     }
-    #header.active {
-        left: 0;
+    #header.active { left: 0; }
+
+    #nav ul li { margin: 20px 0; }
+    #nav ul li a { font-size: 1.5rem; }
+
+    #header .top #logo h1 { font-size: 2rem; margin-bottom: 10px; }
+    #header .top #logo p { font-size: 1.1rem; }
+
+    .social-icons {
+        flex-direction: row;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 30px;
     }
-    #main {
-        margin-left: 0;
-        padding: 20px 10px;
-    }
-    #menu-toggle {
-        display: block;
-    }
-    .image-row img {
-        flex: 1 1 100%;
-    }
+    .social-icons li a { font-size: 1.5rem; }
+
+    #main { margin-left: 0; padding: 20px 10px; }
+    .image-row img { flex: 1 1 100%; }
 }
