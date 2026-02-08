@@ -1,13 +1,8 @@
-export default function Home() {
-  // Base font size for main text
-  const mainTextFontSize = 42; // in pixels
-
-  return (
     <div style={{
       minHeight: "100vh",
       display: "flex",
       flexDirection: "column",
-      justifyContent: "space-between", // text at top/middle, logos at bottom
+      justifyContent: "space-between", // text top/middle, logos bottom
       alignItems: "center",
       fontFamily: "Arial, sans-serif",
       textAlign: "center",
@@ -15,15 +10,17 @@ export default function Home() {
       color: "#0A66C2",
       lineHeight: "1.4",
     }}>
-      
-      
+
+     
       <div>
         <div style={{ fontSize: `${mainTextFontSize}px`, fontWeight: "700" }}>
+          
           Website is under construction
+          
         </div>
 
         <div style={{ marginTop: "30px", fontSize: `${mainTextFontSize * 0.6}px` }}>
-          Contact Kiran Patidar, IIM HAMIRPUR, Architect
+        About Kiran Patidar
         </div>
 
         
@@ -79,7 +76,7 @@ export default function Home() {
         </div>
       </div>
 
-  
+     
       <div style={{
         display: "flex",
         justifyContent: "center",
@@ -87,16 +84,16 @@ export default function Home() {
         gap: "40px",
         marginBottom: "20px"
       }}>
-       
+        
         <a
-          href="https://wa.me/916263625480?text=Hi%20I%20would%20like%20to%20connect%20for%20a%20consultation"
+          href="https://wa.me/91XXXXXXXXXX?text=Hi%20I%20would%20like%20to%20connect%20for%20a%20consultation"
           target="_blank"
           rel="noopener noreferrer"
         >
           <img
             src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
             alt="WhatsApp"
-            style={{ width: `${mainTextFontSize * 2}px`, height: `${mainTextFontSize * 2}px` }}
+            style={{ height: `${mainTextFontSize * 2}px`, width: "auto" }} // maintain aspect ratio
           />
         </a>
 
@@ -109,11 +106,10 @@ export default function Home() {
           <img
             src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
             alt="LinkedIn"
-            style={{ width: `${mainTextFontSize * 2}px`, height: `${mainTextFontSize * 2}px` }}
+            style={{ height: `${mainTextFontSize * 2}px`, width: "auto" }} // maintain aspect ratio
           />
         </a>
       </div>
     </div>
   );
 }
-
