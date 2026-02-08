@@ -1,106 +1,117 @@
 export default function Home() {
+  // Base font size for main text
+  const mainTextFontSize = 42; // in pixels
+
   return (
     <div style={{
       minHeight: "100vh",
       display: "flex",
       flexDirection: "column",
-      justifyContent: "center",
+      justifyContent: "space-between", // text at top/middle, logos at bottom
       alignItems: "center",
       fontFamily: "Arial, sans-serif",
       textAlign: "center",
-      padding: "20px",
-      lineHeight: "1.4",
+      padding: "40px 20px",
       color: "#0A66C2",
+      lineHeight: "1.4",
     }}>
       
-      {/* Under Construction */}
-      <div style={{ fontSize: "80px", fontWeight: "700" }}>
-        Website is under construction
+      
+      <div>
+        <div style={{ fontSize: `${mainTextFontSize}px`, fontWeight: "700" }}>
+          Website is under construction
+        </div>
+
+        <div style={{ marginTop: "30px", fontSize: `${mainTextFontSize * 0.6}px` }}>
+          Contact Kiran Patidar, IIM HAMIRPUR, Architect
+        </div>
+
+        
+        <div style={{
+          marginTop: "50px",
+          maxWidth: "900px",
+          fontSize: `${mainTextFontSize * 0.52}px`,
+          textAlign: "center",
+          color: "#0A66C2",
+        }}>
+          She was a girl<br/>
+          with lines of blueprints<br/>
+          and dreams taller than the highest buildings<br/><br/>
+
+          from halls of NIT HAMIRPUR<br/>
+          she carried her curiosity<br/>
+          like a small flame<br/>
+          lighting up every dark corner of architecture<br/><br/>
+
+          then she stepped into the world<br/>
+          where numbers meet strategy<br/>
+          MBA at IIM KOZHIKODE<br/>
+          taught her the language of growth<br/>
+          the rhythm of business<br/>
+          the poetry of possibility<br/><br/>
+
+          she learned to listen<br/>
+          to the whispers of telecom towers<br/>
+          to the stories of markets far and wide<br/>
+          and she turned them into insights<br/>
+          like an artist turning sketches into masterpieces<br/><br/>
+
+          now she is helping <strong>real estate clients</strong><br/>
+          with <strong>strategic consulting, market insights, and business growth</strong><br/>
+          bringing clarity, actionable strategy, and vision<br/><br/>
+
+          she is bold<br/>
+          she is precise<br/>
+          she is elegant<br/>
+          and she is ready<br/>
+          to help <strong>young professionals and students</strong><br/>
+          to build not just careers<br/>
+          but confidence, clarity, and wings<br/><br/>
+
+          because she knows<br/>
+          that every journey begins<br/>
+          with one small step<br/>
+          and the courage to keep walking<br/><br/>
+
+          if you resonate with her story<br/>
+          feel free to reach out to her<br/>
+          for guidance, mentorship, or <strong>hand-holding in your professional journey</strong>
+        </div>
       </div>
 
-      {/* Contact Line */}
-      <div style={{ marginTop: "30px", fontSize: "36px" }}>
-        Contact Kiran Patidar, IIM HAMIRPUR, Architect
-      </div>
-
-      {/* WhatsApp Icon */}
-      <a
-        href="https://wa.me/91XXXXXXXXXX?text=Hi%20I%20would%20like%20to%20connect%20for%20a%20consultation"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{ marginTop: "30px" }}
-      >
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
-          alt="WhatsApp"
-          style={{ width: "36px", height: "36px" }}
-        />
-      </a>
-
-      {/* LinkedIn Icon */}
-      <a
-        href="https://www.linkedin.com/in/kiranpatidar/"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{ marginTop: "25px" }}
-      >
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
-          alt="LinkedIn"
-          style={{ width: "36px", height: "36px" }}
-        />
-      </a>
-
-      {/* SEO-Friendly Story About Kiran */}
+  
       <div style={{
-        marginTop: "50px",
-        maxWidth: "900px",
-        fontSize: "22px",
-        textAlign: "center",
-        color: "#0A66C2"
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: "40px",
+        marginBottom: "20px"
       }}>
-        She was a girl<br/>
-        with lines of blueprints<br/>
-        and dreams taller than the highest buildings<br/><br/>
+       
+        <a
+          href="https://wa.me/91XXXXXXXXXX?text=Hi%20I%20would%20like%20to%20connect%20for%20a%20consultation"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+            alt="WhatsApp"
+            style={{ width: `${mainTextFontSize * 2}px`, height: `${mainTextFontSize * 2}px` }}
+          />
+        </a>
 
-        from halls of NIT HAMIRPUR<br/>
-        she carried her curiosity<br/>
-        like a small flame<br/>
-        lighting up every dark corner of architecture<br/><br/>
-
-        then she stepped into the world<br/>
-        where numbers meet strategy<br/>
-        MBA at IIM KOZHIKODE<br/>
-        taught her the language of growth<br/>
-        the rhythm of business<br/>
-        the poetry of possibility<br/><br/>
-
-        she learned to listen<br/>
-        to the whispers of telecom towers<br/>
-        to the stories of markets far and wide<br/>
-        and she turned them into insights<br/>
-        like an artist turning sketches into masterpieces<br/><br/>
-
-        now she is helping <strong>real estate clients</strong><br/>
-        with <strong>strategic consulting, market insights, and business growth</strong><br/>
-        bringing clarity, actionable strategy, and vision<br/><br/>
-
-        she is bold<br/>
-        she is precise<br/>
-        she is elegant<br/>
-        and she is ready<br/>
-        to help <strong>young professionals and students</strong><br/>
-        to build not just careers<br/>
-        but confidence, clarity, and wings<br/><br/>
-
-        because she knows<br/>
-        that every journey begins<br/>
-        with one small step<br/>
-        and the courage to keep walking<br/><br/>
-
-        if you resonate with her story<br/>
-        feel free to reach out to her<br/>
-        for guidance, mentorship, or <strong>hand-holding in your professional journey</strong>
+        
+        <a
+          href="https://www.linkedin.com/in/kiranpatidar/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+            alt="LinkedIn"
+            style={{ width: `${mainTextFontSize * 2}px`, height: `${mainTextFontSize * 2}px` }}
+          />
+        </a>
       </div>
     </div>
   );
