@@ -1,125 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kiran Patidar</title>
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="assets/js/jquery.min.js"></script>
-</head>
-<body class="is-preload">
-
-    <!-- Mobile Menu Toggle -->
-    <a href="#" id="menu-toggle"><i class="fas fa-bars"></i></a>
-
-    <!-- Sidebar -->
-    <div id="header">
-        <div class="top">
-            <div id="logo">
-                <span class="image avatar48"><img src="myimages/journey-main1.jpg" alt="Avatar" /></span>
-                <h1 id="title">Kiran Patidar</h1>
-                <p>An Architect & A Management Professional</p>
-            </div>
-
-            <!-- Navigation -->
-            <nav id="nav">
-                <ul>
-                    <li><a href="#journey" class="scrolly">My Journey</a></li>
-                    <li><a href="#career" class="scrolly">Career Counselling</a></li>
-                    <li><a href="#consulting" class="scrolly">Consulting</a></li>
-                    <li><a href="#travel" class="scrolly">My Interests</a></li>
-                </ul>
-            </nav>
-
-            <!-- Social Icons Horizontal -->
-            <ul class="social-icons">
-                <li><a href="https://www.instagram.com/a_._ray/?hl=en" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="https://www.linkedin.com/in/kiranpatidar/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                <li><a href="https://www.facebook.com/kiran.patidar.587" target="_blank"><i class="fab fa-facebook"></i></a></li>
-            </ul>
-        </div>
+export default function Home() {
+  return (
+    <div style={{
+      height: "100vh",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      fontSize: "28px",
+      fontFamily: "Arial, sans-serif"
+    }}>
+      Website is under construction - Kiran Patidar Linkedin Profile - https://www.linkedin.com/in/kiranpatidar/
     </div>
-
-    <!-- Main Content -->
-    <div id="main">
-
-        <!-- Section 1: My Journey -->
-        <section id="journey" class="one">
-            <div class="container">
-                <header>
-                    <h2 style="margin-bottom:20px;">“Step Into My Life Journey”</h2>
-                </header>
-
-                <p>“I strive to inspire women to embrace creativity, learning, and strategic thinking, while sharing my journey and insights to help them grow, pursue their passions, and create meaningful impact.”</p>
-
-                <p>Kiran is a seeker navigating the space between reason and meaning. An architect by heart and an MBA from IIM Kozhikode, she blends creativity with structured thinking. Fascinated by patterns, symbols, and connections, she explores herself through reading, travel, and stillness—striving not for perfection, but for wholeness, embracing both light and shadow.</p>
-
-                <div class="image-row">
-                    <img src="myimages/journey-main1.jpg" alt="Journey Main">
-                    <img src="myimages/journey-main2.jpg" alt="Journey Secondary">
-                </div>
-
-                <p>“From 2014 to 2019, I developed expertise in architecture, designing impactful spaces, and from 2022 to 2024, I honed strategic and consulting skills at IIM Kozhikode, integrating creativity with structured business thinking.”</p>
-            </div>
-        </section>
-
-        <!-- Section 2: Career Counselling -->
-        <section id="career" class="two">
-            <div class="container">
-                <header><h2>Career Counselling</h2></header>
-                <img src="myimages/dummy-career.jpg" alt="Career Counselling" class="fit-image">
-            </div>
-        </section>
-
-        <!-- Section 3: Consulting -->
-        <section id="consulting" class="three">
-            <div class="container">
-                <header><h2>Consulting</h2></header>
-                <img src="myimages/dummy-consulting.jpg" alt="Consulting" class="fit-image">
-            </div>
-        </section>
-
-        <!-- Section 4: My Interests -->
-        <section id="travel" class="four">
-            <div class="container">
-                <header><h2>My Interests</h2></header>
-                <p>Journey with me through adventures, travels, and passions as I explore the outer world and the depths within.</p>
-                <div class="image-row">
-                    <img src="myimages/travel1.jpg" alt="Travel 1">
-                    <img src="myimages/travel2.jpg" alt="Travel 2">
-                    <img src="myimages/travel3.jpg" alt="Travel 3">
-                    <img src="myimages/travel4.jpg" alt="Travel 4">
-                </div>
-            </div>
-        </section>
-
-        <!-- Final WhatsApp Contact -->
-        <section id="final-contact" class="five">
-            <div class="container" style="text-align:center; padding:50px 0;">
-                <a href="https://wa.me/916263625480?text=Hi%20Kiran,%20I%20want%20to%20know%20more%20about%20your%20updates" target="_blank" class="contact-button">
-                    Feel free to reach out!
-                </a>
-            </div>
-        </section>
-
-    </div>
-
-    <!-- Sidebar Toggle Script -->
-    <script>
-    $(document).ready(function() {
-        $('#menu-toggle').click(function(e) {
-            e.preventDefault();
-            $('#header').toggleClass('active');
-        });
-
-        $('#nav ul li a').click(function() {
-            if ($(window).width() <= 768) {
-                $('#header').removeClass('active'); // Close sidebar on mobile
-            }
-        });
-    });
-    </script>
-
-</body>
-</html>
+  );
+}
