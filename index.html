@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kiran Patidar | Strategic Consulting & Real Estate Intelligence</title>
+    <title>Kiran Patidar | Strategy Consultant @ EY Parthenon | IIM Kozhikode</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -32,7 +32,7 @@
         .logo span { color: var(--text-primary); }
         
         /* Navigation Tabs */
-        .nav-tabs { display: flex; gap: 8px; margin-top: 16px; }
+        .nav-tabs { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
         .nav-tab { 
             padding: 12px 24px; 
             background: var(--bg-tertiary); 
@@ -52,60 +52,84 @@
         .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
-        /* Professional Journey Tab */
+        /* Professional Journey Tab - HERO SECTION WITH PROFILE PICTURE */
         .hero-section { text-align: center; padding: 60px 0; }
-        .hero-name { font-size: 48px; font-weight: 700; margin-bottom: 16px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-title { font-size: 24px; color: var(--text-secondary); margin-bottom: 24px; }
-        .hero-location { display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: 14px; }
         
-        .timeline { max-width: 900px; margin: 40px auto; position: relative; }
-        .timeline::before { content: ''; position: absolute; left: 50%; transform: translateX(-50%); width: 2px; height: 100%; background: var(--border-color); }
-        .timeline-item { display: flex; justify-content: flex-end; padding-bottom: 40px; position: relative; width: 50%; }
+        /* Profile Picture Styles */
+        .profile-image-container {
+            margin-bottom: 24px;
+        }
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-blue);
+            box-shadow: 0 8px 32px rgba(88, 166, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 48px rgba(88, 166, 255, 0.5);
+        }
+        
+        .hero-name { font-size: 48px; font-weight: 700; margin-bottom: 12px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-title { font-size: 22px; color: var(--text-secondary); margin-bottom: 12px; font-weight: 500; }
+        .hero-subtitle { font-size: 16px; color: var(--accent-cyan); margin-bottom: 16px; font-weight: 500; }
+        .hero-location { display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: 14px; margin-bottom: 20px; }
+        .hero-stats { display: flex; gap: 24px; justify-content: center; margin-top: 24px; flex-wrap: wrap; }
+        .stat-item { text-align: center; }
+        .stat-value { font-size: 24px; font-weight: 700; color: var(--accent-blue); }
+        .stat-label { font-size: 12px; color: var(--text-secondary); }
+        
+        /* ... rest of your existing CSS ... */
+        
+        .timeline { max-width: 1000px; margin: 40px auto; position: relative; }
+        .timeline::before { content: ''; position: absolute; left: 50%; transform: translateX(-50%); width: 3px; height: 100%; background: linear-gradient(to bottom, var(--accent-blue), var(--accent-purple)); border-radius: 2px; }
+        .timeline-item { display: flex; justify-content: flex-end; padding-bottom: 50px; position: relative; width: 50%; }
         .timeline-item:nth-child(even) { justify-content: flex-start; margin-left: 50%; }
-        .timeline-content { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 24px; width: 90%; position: relative; }
-        .timeline-content::before { content: ''; position: absolute; width: 16px; height: 16px; background: var(--accent-blue); border-radius: 50%; top: 24px; }
-        .timeline-item:nth-child(odd) .timeline-content::before { right: -32px; }
-        .timeline-item:nth-child(even) .timeline-content::before { left: -32px; }
-        .timeline-date { font-size: 12px; color: var(--accent-blue); font-weight: 600; margin-bottom: 8px; }
-        .timeline-title { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
-        .timeline-subtitle { font-size: 14px; color: var(--text-secondary); margin-bottom: 12px; }
-        .timeline-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+        .timeline-content { background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary)); border: 1px solid var(--border-color); border-radius: 12px; padding: 28px; width: 92%; position: relative; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+        .timeline-content:hover { border-color: var(--accent-blue); transform: translateY(-4px); box-shadow: 0 8px 24px rgba(88, 166, 255, 0.2); }
+        .timeline-content::before { content: ''; position: absolute; width: 20px; height: 20px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); border-radius: 50%; top: 28px; border: 3px solid var(--bg-primary); }
+        .timeline-item:nth-child(odd) .timeline-content::before { right: -38px; }
+        .timeline-item:nth-child(even) .timeline-content::before { left: -38px; }
+        .timeline-date { display: inline-block; font-size: 12px; color: var(--accent-blue); font-weight: 700; margin-bottom: 12px; padding: 4px 12px; background: rgba(88, 166, 255, 0.1); border-radius: 20px; }
+        .timeline-title { font-size: 20px; font-weight: 700; margin-bottom: 8px; color: var(--text-primary); }
+        .timeline-company { font-size: 15px; color: var(--accent-cyan); font-weight: 600; margin-bottom: 10px; }
+        .timeline-subtitle { font-size: 14px; color: var(--text-secondary); margin-bottom: 14px; font-style: italic; }
+        .timeline-desc { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+        .timeline-tags { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+        .timeline-tag { background: rgba(88, 166, 255, 0.15); color: var(--accent-blue); padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 600; }
         
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 40px 0; }
-        .skill-card { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; text-align: center; }
-        .skill-icon { font-size: 32px; margin-bottom: 12px; }
-        .skill-name { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin: 50px 0; }
+        .skill-card { background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary)); border: 1px solid var(--border-color); border-radius: 10px; padding: 24px; text-align: center; transition: all 0.3s ease; }
+        .skill-card:hover { border-color: var(--accent-blue); transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); }
+        .skill-icon { font-size: 36px; margin-bottom: 14px; }
+        .skill-name { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
         .skill-level { font-size: 12px; color: var(--text-secondary); }
+        
+        .education-section { margin: 60px 0; }
+        .education-card { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 24px; margin-bottom: 16px; display: flex; align-items: center; gap: 20px; transition: all 0.3s ease; }
+        .education-card:hover { border-color: var(--accent-blue); transform: translateX(4px); }
+        .education-icon { font-size: 32px; }
+        .education-info { flex: 1; }
+        .education-degree { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+        .education-institution { font-size: 14px; color: var(--accent-cyan); margin-bottom: 4px; }
+        .education-year { font-size: 12px; color: var(--text-muted); }
         
         /* Market Insights Tab */
         .insights-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; flex-wrap: wrap; gap: 16px; }
         .insights-title-block h1 { font-size: 36px; font-weight: 700; margin-bottom: 8px; }
         .insights-title-block p { font-size: 16px; color: var(--text-secondary); }
         
-        /* Comparative Toggle Button */
         .comparative-toggle { display: flex; align-items: center; gap: 12px; background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 8px; padding: 4px; }
         .toggle-label { font-size: 12px; font-weight: 600; color: var(--text-secondary); padding: 8px 12px; }
-        .toggle-btn { 
-            padding: 10px 20px; 
-            border: none; 
-            border-radius: 6px; 
-            cursor: pointer; 
-            font-size: 13px; 
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
+        .toggle-btn { padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.2s ease; }
         .toggle-btn.active { background: var(--accent-blue); color: var(--bg-primary); }
         .toggle-btn:not(.active) { background: transparent; color: var(--text-primary); }
         .toggle-btn:hover:not(.active) { background: var(--bg-secondary); }
         
-        .fiscal-year-badge { 
-            display: inline-block; 
-            padding: 6px 14px; 
-            border-radius: 20px; 
-            font-size: 13px; 
-            font-weight: 600;
-            margin-left: 12px;
-        }
+        .fiscal-year-badge { display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-left: 12px; }
         .badge-fy24 { background: rgba(88, 166, 255, 0.15); color: var(--accent-blue); border: 1px solid var(--accent-blue); }
         .badge-fy25 { background: rgba(63, 185, 80, 0.15); color: var(--accent-green); border: 1px solid var(--accent-green); }
         
@@ -122,6 +146,12 @@
         .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 32px; }
         .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 32px; }
         @media (max-width: 1024px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { 
+            .timeline::before { left: 20px; } 
+            .timeline-item { width: 100%; margin-left: 0 !important; justify-content: flex-start !important; padding-left: 50px; } 
+            .timeline-content::before { left: 12px !important; }
+            .profile-image { width: 150px; height: 150px; }
+        }
         
         .card { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 24px; }
         .card-header { margin-bottom: 16px; }
@@ -144,30 +174,31 @@
         .badge-affordable { background: rgba(63, 185, 80, 0.2); color: var(--accent-green); }
         
         /* Learn with Me Tab */
-        .learning-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 24px; margin-top: 32px; }
-        .learning-card { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; }
-        .learning-header { background: var(--bg-tertiary); padding: 20px; border-bottom: 1px solid var(--border-color); }
-        .learning-title { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
-        .learning-subtitle { font-size: 12px; color: var(--text-secondary); }
-        .learning-content { padding: 20px; }
-        .learning-topic { font-size: 13px; font-weight: 600; color: var(--accent-blue); margin-bottom: 8px; }
-        .learning-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px; }
-        .learning-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-        .tag { background: var(--bg-tertiary); padding: 4px 10px; border-radius: 4px; font-size: 11px; color: var(--text-secondary); }
+        .learn-header { text-align: center; margin-bottom: 48px; }
+        .learn-title { font-size: 36px; font-weight: 700; margin-bottom: 12px; }
+        .learn-subtitle { font-size: 16px; color: var(--text-secondary); }
         
-        .progress-section { margin-top: 32px; }
-        .progress-item { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; margin-bottom: 16px; }
-        .progress-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-        .progress-title { font-size: 14px; font-weight: 600; }
-        .progress-bar { height: 8px; background: var(--bg-tertiary); border-radius: 4px; overflow: hidden; margin-bottom: 8px; }
-        .progress-fill { height: 100%; background: var(--accent-blue); border-radius: 4px; transition: width 0.5s ease; }
+        .progress-section { margin-top: 32px; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .progress-item { background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary)); border: 1px solid var(--border-color); border-radius: 10px; padding: 24px; margin-bottom: 20px; transition: all 0.3s ease; }
+        .progress-item:hover { border-color: var(--accent-blue); transform: translateX(4px); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); }
+        .progress-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+        .progress-title { font-size: 15px; font-weight: 600; }
+        .progress-bar { height: 10px; background: var(--bg-tertiary); border-radius: 5px; overflow: hidden; margin-bottom: 10px; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple)); border-radius: 5px; transition: width 0.5s ease; }
         .progress-text { font-size: 12px; color: var(--text-secondary); }
         
+        .resource-section { margin-top: 48px; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .resource-card { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 28px; }
+        .resource-card-header { margin-bottom: 20px; }
+        .resource-card-title { font-size: 18px; font-weight: 600; margin-bottom: 6px; }
+        .resource-card-subtitle { font-size: 13px; color: var(--text-secondary); }
+        
         .resource-list { margin-top: 16px; }
-        .resource-item { display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--bg-tertiary); border-radius: 6px; margin-bottom: 8px; }
-        .resource-icon { font-size: 20px; }
-        .resource-name { font-size: 13px; font-weight: 500; flex: 1; }
-        .resource-link { font-size: 12px; color: var(--accent-blue); text-decoration: none; }
+        .resource-item { display: flex; align-items: center; gap: 16px; padding: 16px; background: var(--bg-tertiary); border-radius: 8px; margin-bottom: 12px; transition: all 0.2s ease; }
+        .resource-item:hover { background: rgba(88, 166, 255, 0.1); transform: translateX(4px); }
+        .resource-icon { font-size: 24px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: rgba(88, 166, 255, 0.15); border-radius: 8px; }
+        .resource-name { font-size: 14px; font-weight: 500; flex: 1; }
+        .resource-link { font-size: 12px; color: var(--accent-blue); text-decoration: none; font-weight: 600; }
         .resource-link:hover { text-decoration: underline; }
         
         /* Footer */
@@ -176,7 +207,7 @@
         .footer-section h3 { font-size: 14px; font-weight: 600; margin-bottom: 16px; color: var(--accent-blue); }
         .footer-section p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 8px; }
         .social-links { display: flex; gap: 16px; margin-top: 16px; }
-        .social-link { font-size: 20px; color: var(--text-secondary); transition: color 0.2s ease; }
+        .social-link { font-size: 20px; color: var(--text-secondary); transition: color 0.2s ease; text-decoration: none; }
         .social-link:hover { color: var(--accent-blue); }
         
         .delta-positive { color: var(--accent-green); }
@@ -203,744 +234,30 @@
         </div>
     </header>
 
-    <!-- Tab 1: Professional Journey -->
+    <!-- Tab 1: Professional Journey WITH PROFILE PICTURE -->
     <div id="journey" class="tab-content active">
         <div class="container">
             <div class="hero-section">
+                <!-- Profile Picture - PLACEHOLDER -->
+                <div class="profile-image-container">
+                    <img src="profile.jpg" alt="Kiran Patidar" class="profile-image">
+                </div>
+                
                 <h1 class="hero-name">Kiran Patidar</h1>
-                <p class="hero-title">Senior Analyst | Strategic Consulting Aspirant | Market Research Expert</p>
+                <p class="hero-title">Strategy Consultant @ EY-Parthenon</p>
+                <p class="hero-subtitle">IIM Kozhikode Alumna | Architect | AI Business Solution Strategist</p>
                 <div class="hero-location">📍 Gurugram, Haryana, India</div>
+                <div class="hero-stats">
+                    <div class="stat-item"><div class="stat-value">4,355+</div><div class="stat-label">LinkedIn Followers</div></div>
+                    <div class="stat-item"><div class="stat-value">500+</div><div class="stat-label">LinkedIn Connections</div></div>
+                    <div class="stat-item"><div class="stat-value">3+</div><div class="stat-label">Years in Consulting</div></div>
+                </div>
             </div>
 
+            <!-- Rest of timeline continues... -->
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="timeline-date">2024 - Present</div>
-                        <div class="timeline-title">Consulting Interview Preparation</div>
-                        <div class="timeline-subtitle">Senior-Level Consulting Case Preparation</div>
-                        <div class="timeline-desc">Intensively preparing for senior-level consulting interviews with focus on strategic frameworks, market research, and data-driven company analysis. Developing customized frameworks for profitability, growth, and market entry cases.</div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">2023 - Present</div>
-                        <div class="timeline-title">Market Research & Company Analysis</div>
-                        <div class="timeline-subtitle">Research & Data Analytics Professional</div>
-                        <div class="timeline-desc">Conducting large-scale research analysis across multiple industries including FMCG, telecom, SaaS, and real estate. Compiling extensive company databases in Excel/CSV formats with focus on industry-specific KPIs and competitive intelligence.</div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">2022 - Present</div>
-                        <div class="timeline-title">Data Analysis & Model Building</div>
-                        <div class="timeline-subtitle">Independent Research & Analytics</div>
-                        <div class="timeline-desc">Building advanced data models and analytical frameworks for market analysis. Specializing in data structuring, cleansing, and visualization for presentable research reports and executive slides.</div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">Ongoing</div>
-                        <div class="timeline-title">HRERA Real Estate Intelligence Platform</div>
-                        <div class="timeline-subtitle">Real Estate Regulatory Analytics Project</div>
-                        <div class="timeline-desc">Developed executive-grade Real Estate Regulatory Intelligence System for Gurugram using HRERA data. Built comprehensive dashboard analyzing 877 projects, ₹3 Lakh Cr investment, promoter concentration, agent ecosystem, and regulatory enforcement patterns.</div>
-                    </div>
-                </div>
-            </div>
-
-            <h2 class="text-center" style="font-size: 24px; margin: 60px 0 32px;">Core Competencies</h2>
-            <div class="skills-grid">
-                <div class="skill-card"><div class="skill-icon">📊</div><div class="skill-name">Consulting Case Frameworks</div><div class="skill-level">Advanced</div></div>
-                <div class="skill-card"><div class="skill-icon">🔍</div><div class="skill-name">Market & Competitor Analysis</div><div class="skill-level">Expert</div></div>
-                <div class="skill-card"><div class="skill-icon">📈</div><div class="skill-name">Data Analysis & Visualization</div><div class="skill-level">Advanced</div></div>
-                <div class="skill-card"><div class="skill-icon">💼</div><div class="skill-name">Industry KPIs (FMCG, Telecom, SaaS)</div><div class="skill-level">Advanced</div></div>
-                <div class="skill-card"><div class="skill-icon">🏗️</div><div class="skill-name">Real Estate Regulatory Analysis</div><div class="skill-level">Expert</div></div>
-                <div class="skill-card"><div class="skill-icon">📝</div><div class="skill-name">Research Report Presentation</div><div class="skill-level">Advanced</div></div>
-                <div class="skill-card"><div class="skill-icon">🔧</div><div class="skill-name">Excel/CSV Data Management</div><div class="skill-level">Expert</div></div>
-                <div class="skill-card"><div class="skill-icon">🌐</div><div class="skill-name">Web Scraping & Data Collection</div><div class="skill-level">Advanced</div></div>
-            </div>
-
-            <h2 class="text-center" style="font-size: 24px; margin: 60px 0 32px;">Industry Expertise</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <div class="card-title">📱 FMCG Sector</div>
-                    <div class="card-subtitle">Consumer Goods Market Analysis</div>
-                    <div class="insight-box"><div class="insight-content"><strong>Focus Areas:</strong> Brand portfolio analysis, distribution channel mapping, pricing strategy, market share dynamics, competitive positioning</div></div>
-                </div>
-                <div class="card">
-                    <div class="card-title">📡 Telecom Sector</div>
-                    <div class="card-subtitle">5G/6G Unit Economics</div>
-                    <div class="insight-box"><div class="insight-content"><strong>Focus Areas:</strong> ARPU analysis, CAPEX optimization, network infrastructure, 5G vs 6G impact, subscriber acquisition costs, regulatory framework</div></div>
-                </div>
-                <div class="card">
-                    <div class="card-title">☁️ SaaS Sector</div>
-                    <div class="card-subtitle">Software-as-a-Service Analytics</div>
-                    <div class="insight-box"><div class="insight-content"><strong>Focus Areas:</strong> MRR/ARR tracking, churn analysis, CAC/LTV ratios, expansion revenue, product-market fit, go-to-market strategy</div></div>
-                </div>
-                <div class="card">
-                    <div class="card-title">🏢 Real Estate</div>
-                    <div class="card-subtitle">RERA Regulatory Intelligence</div>
-                    <div class="insight-box"><div class="insight-content"><strong>Focus Areas:</strong> HRERA compliance, promoter concentration, project lifecycle analysis, sector-wise clustering, enforcement patterns, affordable housing policy</div></div>
-                </div>
-                <div class="card">
-                    <div class="card-title">🏛️ Consulting</div>
-                    <div class="card-subtitle">Strategy Frameworks</div>
-                    <div class="insight-box"><div class="insight-content"><strong>Focus Areas:</strong> Profitability frameworks, market entry strategy, growth strategy, operational excellence, due diligence, M&A analysis</div></div>
-                </div>
-                <div class="card">
-                    <div class="card-title">📊 Data Intelligence</div>
-                    <div class="card-subtitle">Advanced Analytics</div>
-                    <div class="insight-box"><div class="insight-content"><strong>Focus Areas:</strong> Dashboard development, CHART.js visualization, statistical analysis, predictive modeling, data cleansing, executive reporting</div></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Tab 2: Market Insights - Real Estate Sector -->
-    <div id="insights" class="tab-content">
-        <div class="container">
-            <div class="insights-header">
-                <div class="insights-title-block">
-                    <h1>🏗️ HRERA Gurugram Real Estate Intelligence</h1>
-                    <p>Executive Regulatory Intelligence Platform</p>
-                </div>
-                <div class="comparative-toggle">
-                    <span class="toggle-label">📊 Compare Annual Reports:</span>
-                    <button class="toggle-btn active" id="toggleFY24" onclick="toggleFiscalYear('FY24')">FY 2023-24</button>
-                    <button class="toggle-btn" id="toggleFY25" onclick="toggleFiscalYear('FY25')">FY 2024-25</button>
-                    <span id="yearBadge" class="fiscal-year-badge badge-fy24">FY 2023-24</span>
-                </div>
-            </div>
-
-            <!-- KPI Strip - Toggleable -->
-            <div class="kpi-strip">
-                <div class="kpi-card">
-                    <div class="kpi-label">Total Projects (Since 2017)</div>
-                    <div class="kpi-value">877</div>
-                    <div class="kpi-trend trend-up">↑ Cumulative</div>
-                    <div class="kpi-subtext">₹3 Lakh Cr invested</div>
-                </div>
-                <div class="kpi-card">
-                    <div class="kpi-label">Annual Investment</div>
-                    <div class="kpi-data-fy24 active">
-                        <div class="kpi-value">₹88,144 Cr</div>
-                        <div class="kpi-trend trend-up">↑ 95% YoY</div>
-                        <div class="kpi-subtext">vs ₹45,226 Cr in 2023</div>
-                    </div>
-                    <div class="kpi-data-fy25">
-                        <div class="kpi-value">₹86,588 Cr</div>
-                        <div class="kpi-trend trend-down">↓ 1.8% YoY</div>
-                        <div class="kpi-subtext">vs ₹88,144 Cr in 2024</div>
-                    </div>
-                </div>
-                <div class="kpi-card">
-                    <div class="kpi-label">New Projects (Annual)</div>
-                    <div class="kpi-data-fy24 active">
-                        <div class="kpi-value">124</div>
-                        <div class="kpi-trend trend-up">↑ 10.7% YoY</div>
-                        <div class="kpi-subtext">vs 112 in 2023</div>
-                    </div>
-                    <div class="kpi-data-fy25">
-                        <div class="kpi-value">131</div>
-                        <div class="kpi-trend trend-up">↑ 5.6% YoY</div>
-                        <div class="kpi-subtext">vs 124 in 2024</div>
-                    </div>
-                </div>
-                <div class="kpi-card">
-                    <div class="kpi-label">Residential Units</div>
-                    <div class="kpi-data-fy24 active">
-                        <div class="kpi-value">Not Disclosed</div>
-                        <div class="kpi-trend trend-down">↓</div>
-                        <div class="kpi-subtext">Data not available</div>
-                    </div>
-                    <div class="kpi-data-fy25">
-                        <div class="kpi-value">31,455</div>
-                        <div class="kpi-trend trend-up">↑ New Supply</div>
-                        <div class="kpi-subtext">From 131 projects</div>
-                    </div>
-                </div>
-                <div class="kpi-card">
-                    <div class="kpi-label">Affordable Housing Units</div>
-                    <div class="kpi-data-fy24 active">
-                        <div class="kpi-value">Not Disclosed</div>
-                        <div class="kpi-trend trend-down">↓</div>
-                        <div class="kpi-subtext">Data not available</div>
-                    </div>
-                    <div class="kpi-data-fy25">
-                        <div class="kpi-value">2,122</div>
-                        <div class="kpi-trend trend-up">↑ Priority</div>
-                        <div class="kpi-subtext">Group housing units</div>
-                    </div>
-                </div>
-                <div class="kpi-card">
-                    <div class="kpi-label">Total Agents Registered</div>
-                    <div class="kpi-value">408+</div>
-                    <div class="kpi-trend trend-up">↑ FY23-24</div>
-                    <div class="kpi-subtext">250 renewals processed</div>
-                </div>
-            </div>
-
-            <div class="grid-2">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">Investment Trajectory Gurugram</div>
-                        <div class="card-subtitle">Multi-year investment formation trend (₹ Crore)</div>
-                    </div>
-                    <div class="chart-container"><canvas id="investmentTrendChart"></canvas></div>
-                    <div class="insight-box">
-                        <div class="insight-title">🔍 Key Insight</div>
-                        <div class="insight-content">
-                            <strong>WHAT:</strong> Investment doubled from ₹45,226 Cr (2023) to ₹88,144 Cr (2024), stabilized at ₹86,588 Cr (2025).<br>
-                            <strong>WHY:</strong> 2024 luxury corridor surge; 2025 market maturation.<br>
-                            <strong>SO WHAT:</strong> Watch luxury saturation; mid-market has growth runway.<br>
-                            <strong>TAKAWAY:</strong> Monitor segment diversification for risk management.
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">Project Count Trend</div>
-                        <div class="card-subtitle">Annual project registration volume</div>
-                    </div>
-                    <div class="chart-container"><canvas id="projectTrendChart"></canvas></div>
-                    <div class="insight-box">
-                        <div class="insight-title">🔍 Key Insight</div>
-                        <div class="insight-content">
-                            <strong>WHAT:</strong> Projects increased 112 (2023) → 124 (2024) → 131 (2025).<br>
-                            <strong>WHY:</strong> Consistent developer activity; regulatory confidence.<br>
-                            <strong>SO WHAT:</strong> Supply pipeline healthy; competition intensifying.<br>
-                            <strong>TAKAWAY:</strong> Differentiation critical for developers in crowded market.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid-2">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">Unit Composition by Type</div>
-                        <div class="card-subtitle">FY 2024-25 residential unit breakdown (Only available for FY25)</div>
-                    </div>
-                    <div class="chart-container"><canvas id="unitCompositionChart"></canvas></div>
-                    <div class="insight-box">
-                        <div class="insight-title">🔍 Key Insight</div>
-                        <div class="insight-content">
-                            <strong>WHAT:</strong> Group housing 55%, Mixed-use 18%, RDU 13%, Affordable 7%, Deen Dayal 6%.<br>
-                            <strong>WHY:</strong> Group housing primary delivery model; policy-driven affordable at 13%.<br>
-                            <strong>SO WHAT:</strong> Buyers have diverse options; policy tailwinds for affordable.<br>
-                            <strong>TAKAWAY:</strong> Mid-premium is core; affordable has policy support but lower margins.
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">Segment Distribution</div>
-                        <div class="card-subtitle">Affordable vs Mid vs Luxury split</div>
-                    </div>
-                    <div class="chart-container"><canvas id="segmentDonutChart"></canvas></div>
-                    <div class="insight-box">
-                        <div class="insight-title">🔍 Key Insight</div>
-                        <div class="insight-content">
-                            <strong>WHAT:</strong> Mid-Market 55%, Luxury 32%, Affordable 13%.<br>
-                            <strong>WHY:</strong> Policy mandates 13% affordable; market demand drives mid-premium.<br>
-                            <strong>SO WHAT:</strong> Mid-market is volume driver; luxury is value driver.<br>
-                            <strong>TAKAWAY:</strong> Portfolio strategy: Mid for volume, luxury for value, affordable for compliance.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Comparative Annual Analysis: FY 2023-24 vs FY 2024-25</div>
-                    <div class="card-subtitle">Complete year-over-year market shift analysis</div>
-                </div>
-                <div class="table-container">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Metric</th>
-                                <th>FY 2023-24</th>
-                                <th>FY 2024-25</th>
-                                <th>Absolute Change</th>
-                                <th>% Change</th>
-                                <th>Signal</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td><strong>Total Investment</strong></td><td>₹88,144 Cr</td><td>₹86,588 Cr</td><td class="delta-negative">-₹1,556 Cr</td><td class="delta-negative">-1.8%</td><td><span class="badge badge-mid">Stabilization</span></td></tr>
-                            <tr><td><strong>New Projects</strong></td><td>124</td><td>131</td><td class="delta-positive">+7</td><td class="delta-positive">+5.6%</td><td><span class="badge badge-affordable">Growth</span></td></tr>
-                            <tr><td><strong>Residential Units</strong></td><td>Not disclosed</td><td>31,455</td><td class="delta-positive">New</td><td class="delta-neutral">N/A</td><td><span class="badge badge-mid">Transparency</span></td></tr>
-                            <tr><td><strong>Affordable Units</strong></td><td>Not disclosed</td><td>2,122</td><td class="delta-positive">New</td><td class="delta-neutral">N/A</td><td><span class="badge badge-affordable">Policy</span></td></tr>
-                            <tr><td><strong>Commercial Units</strong></td><td>Not disclosed</td><td>4,000</td><td class="delta-positive">New</td><td class="delta-neutral">N/A</td><td><span class="badge badge-mid">Diversification</span></td></tr>
-                            <tr><td><strong>Avg Project Size</strong></td><td>₹711 Cr</td><td>₹661 Cr</td><td class="delta-negative">-₹50 Cr</td><td class="delta-negative">-7.0%</td><td><span class="badge badge-mid">Fragmentation</span></td></tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="insight-box">
-                    <div class="insight-title">🔍 Comparative Analysis Conclusion</div>
-                    <div class="insight-content">
-                        <strong>WHAT CHANGED:</strong> Investment declined -1.8% while project count increased +5.6%, indicating smaller average project sizes.<br>
-                        <strong>WHY:</strong> After 2024's luxury megaproject surge, 2025 saw more projects but less concentrated value. Mid-market activity increased.<br>
-                        <strong>SO WHAT:</strong> Market structure is diversifying. Luxury concentration easing; mid-market gaining share = healthy maturation.<br>
-                        <strong>STRATEGIC TAKEAWAY:</strong> FY25 shows market correction after luxury boom. Mid-market has growth runway; monitor if trend continues.
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid-2">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">Top Promoters by Market Share</div>
-                        <div class="card-subtitle">Market concentration analysis</div>
-                    </div>
-                    <div class="chart-container"><canvas id="promoterRankingChart"></canvas></div>
-                    <div class="insight-box">
-                        <div class="insight-title">🔍 Promoter Insight</div>
-                        <div class="insight-content">
-                            <strong>WHAT:</strong> SOBHA, DLF, JMD, Emaar, Max Estates dominate.<br>
-                            <strong>WHY:</strong> Established developers with capital access win approvals.<br>
-                            <strong>SO WHAT:</strong> Market consolidating around tier-1 developers.<br>
-                            <strong>TAKAWAY:</strong> Brand now premium driver post-RERA.
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">Gurugram Sector Activity</div>
-                        <div class="card-subtitle">Project concentration by micro-market</div>
-                    </div>
-                    <div class="chart-container"><canvas id="sectorHeatmapChart"></canvas></div>
-                    <div class="insight-box">
-                        <div class="insight-title">🔍 Sector Insight</div>
-                        <div class="insight-content">
-                            <strong>WHAT:</strong> High activity sectors: 106, 108, 80, 65, 114, 115.<br>
-                            <strong>WHY:</strong> Southern/western expansion zones have land availability.<br>
-                            <strong>SO WHAT:</strong> Southern Gurugram is development frontier.<br>
-                            <strong>TAKAWAY:</strong> 106-108 corridor = new luxury destination.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Agent Ecosystem Structure (Annexure B)</div>
-                    <div class="card-subtitle">Brokerage formalization and institutionalisation</div>
-                </div>
-                <div class="chart-container"><canvas id="agentPieChart"></canvas></div>
-                <div class="insight-box">
-                    <div class="insight-title">🔍 Agent Ecosystem Insight</div>
-                    <div class="insight-content">
-                        <strong>WHAT:</strong> Individual agents 75%, Proprietorship 10%, Company/Firm 15%.<br>
-                        <strong>WHY:</strong> Low entry barriers drive individual dominance; company structure growing.<br>
-                        <strong>SO WHAT:</strong> Market transitioning from informal to formal; 61% renewal rate.<br>
-                        <strong>TAKAWAY:</strong> Brokerage consolidation beginning; individual agents under pressure to institutionalize.
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">Regulatory Enforcement Framework</div>
-                    <div class="card-subtitle">Compliance requirements and penalty structure</div>
-                </div>
-                <div class="table-container">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Violation Type</th>
-                                <th>Penalty</th>
-                                <th>Trigger</th>
-                                <th>Deterrent</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Annual Report Non-submission</td><td>₹5 Lakh + ₹10K/day</td><td>Beyond 30 days</td><td><span class="badge badge-luxury">High</span></td></tr>
-                            <tr><td>Non-audited Accounts</td><td>₹5 Lakh + ₹10K/day</td><td>Beyond 60 days</td><td><span class="badge badge-luxury">High</span></td></tr>
-                            <tr><td>False Information</td><td>Up to 5% project cost</td><td>Section 60 breach</td><td><span class="badge badge-luxury">Very High</span></td></tr>
-                            <tr><td>Fund Misuse</td><td>Up to 5% project cost</td><td>Section 4 violation</td><td><span class="badge badge-luxury">Very High</span></td></tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="insight-box">
-                    <div class="insight-title">🔍 Enforcement Insight</div>
-                    <div class="insight-content">
-                        <strong>WHAT:</strong> HRERA introduced strict annual report mandate with show-cause notices and escalating penalties.<br>
-                        <strong>WHY:</strong> Widespread non-compliance detected during review.<br>
-                        <strong>SO WHAT:</strong> Regulatory enforcement tightening; compliance costs increasing.<br>
-                        <strong>TAKAWAY:</strong> Developer compliance now material investment risk. Compliance capability = competitive advantage.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Tab 3: Learn with Me -->
-    <div id="learn" class="tab-content">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 40px;">
-                <h1 style="font-size: 36px; font-weight: 700; margin-bottom: 12px;">📚 Learn with Me</h1>
-                <p style="font-size: 16px; color: var(--text-secondary);">My learning journey in consulting preparation, market research, and data analytics</p>
-            </div>
-
-            <div class="learning-grid">
-                <div class="learning-card">
-                    <div class="learning-header">
-                        <div class="learning-title">🎯 Consulting Case Preparation</div>
-                        <div class="learning-subtitle">Framework Mastery & Interview Prep</div>
-                    </div>
-                    <div class="learning-content">
-                        <div class="learning-topic">What I'm Learning</div>
-                        <div class="learning-desc">Advanced consulting case frameworks including profitability, growth, market entry, and M&A cases. Developing customized frameworks for senior-level interview preparation.</div>
-                        <div class="learning-topic">Key Resources</div>
-                        <div class="learning-tags">
-                            <span class="tag">CaseCoach</span>
-                            <span class="tag">Case Interview Examples</span>
-                            <span class="tag">Victor Cheng</span>
-                            <span class="tag">Case in Point</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="learning-card">
-                    <div class="learning-header">
-                        <div class="learning-title">📊 Market Research Methodologies</div>
-                        <div class="learning-subtitle">Industry Analysis & Competitive Intelligence</div>
-                    </div>
-                    <div class="learning-content">
-                        <div class="learning-topic">What I'm Learning</div>
-                        <div class="learning-desc">Large-scale market research across FMCG, telecom, SaaS, and real estate. Building comprehensive company databases with industry-specific KPIs and competitive positioning analysis.</div>
-                        <div class="learning-topic">Key Resources</div>
-                        <div class="learning-tags">
-                            <span class="tag">Bloomberg Terminal</span>
-                            <span class="tag">Statista</span>
-                            <span class="tag">Company Annual Reports</span>
-                            <span class="tag">Industrywpapers</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="learning-card">
-                    <div class="learning-header">
-                        <div class="learning-title">📈 Data Visualization & Dashboarding</div>
-                        <div class="learning-subtitle">Chart.js & Executive Dashboards</div>
-                    </div>
-                    <div class="learning-content">
-                        <div class="learning-topic">What I'm Learning</div>
-                        <div class="learning-desc">Building executive-grade financial dashboards and regulatory intelligence systems using Chart.js. Creating Bloomberg Terminal-style density with Palantir-style analytical structure.</div>
-                        <div class="learning-topic">Key Resources</div>
-                        <div class="learning-tags">
-                            <span class="tag">Chart.js</span>
-                            <span class="tag">D3.js</span>
-                            <span class="tag">Plotly</span>
-                            <span class="tag">Tableau</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="learning-card">
-                    <div class="learning-header">
-                        <div class="learning-title">🏗️ Real Estate Regulatory Analysis</div>
-                        <div class="learning-subtitle">RERA Ecosystem & Policy Intelligence</div>
-                    </div>
-                    <div class="learning-content">
-                        <div class="learning-topic">What I'm Learning</div>
-                        <div class="learning-desc">Indian RERA ecosystem, HRERA compliance frameworks, promoter concentration analysis, enforcement patterns, and affordable housing policy impact on market dynamics.</div>
-                        <div class="learning-topic">Key Resources</div>
-                        <div class="learning-tags">
-                            <span class="tag">HRERA Reports</span>
-                            <span class="tag">RERA Act 2016</span>
-                            <span class="tag">Policy Papers</span>
-                            <span class="tag">Legal Judgments</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="learning-card">
-                    <div class="learning-header">
-                        <div class="learning-title">📊 Telecom Unit Economics</div>
-                        <div class="learning-subtitle">5G vs 6G Impact Analysis</div>
-                    </div>
-                    <div class="learning-content">
-                        <div class="learning-topic">What I'm Learning</div>
-                        <div class="learning-desc">Telecom sector KPIs including ARPU, CAPEX optimization, network infrastructure economics, 5G rollout impact, and future 6G technology implications for unit economics.</div>
-                        <div class="learning-topic">Key Resources</div>
-                        <div class="learning-tags">
-                            <span class="tag">5G Analytics</span>
-                            <span class="tag">ARPU Models</span>
-                            <span class="tag">CAPEX Planning</span>
-                            <span class="tag">Network Economics</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="learning-card">
-                    <div class="learning-header">
-                        <div class="learning-title">💻 Data Management & Web Scraping</div>
-                        <div class="learning-subtitle">Excel/CSV & Automation Tools</div>
-                    </div>
-                    <div class="learning-content">
-                        <div class="learning-topic">What I'm Learning</div>
-                        <div class="learning-desc">Advanced Excel/CSV data management, web scraping for large datasets, data cleansing and structuring, and building automated data pipelines for research reports.</div>
-                        <div class="learning-topic">Key Resources</div>
-                        <div class="learning-tags">
-                            <span class="tag">Excel Advanced</span>
-                            <span class="tag">Python pandas</span>
-                            <span class="tag">BeautifulSoup</span>
-                            <span class="tag">Power Query</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="progress-section">
-                <h2 style="font-size: 24px; font-weight: 600; margin-bottom: 24px;">📊 Learning Progress Tracker</h2>
-                
-                <div class="progress-item">
-                    <div class="progress-header">
-                        <div class="progress-title">Consulting Case Framework Mastery</div>
-                        <div class="progress-text">75% Complete</div>
-                    </div>
-                    <div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div>
-                    <div class="progress-text">Frameworks completed: Profitability, Growth, Market Entry, M&A. Next: Operations cases</div>
-                </div>
-
-                <div class="progress-item">
-                    <div class="progress-header">
-                        <div class="progress-title">HRERA Intelligence Platform Development</div>
-                        <div class="progress-text">90% Complete</div>
-                    </div>
-                    <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
-                    <div class="progress-text">Completed: KPI dashboards, comparative analysis, promoter intelligence. Next: Advanced Sankey diagrams</div>
-                </div>
-
-                <div class="progress-item">
-                    <div class="progress-header">
-                        <div class="progress-title">Market Research Database (FMCG + Telecom + SaaS)</div>
-                        <div class="progress-text">60% Complete</div>
-                    </div>
-                    <div class="progress-bar"><div class="progress-fill" style="width: 60%;"></div></div>
-                    <div class="progress-text">Completed: 200+ company profiles. Next: Deep-dive financial modeling for top 50</div>
-                </div>
-
-                <div class="progress-item">
-                    <div class="progress-header">
-                        <div class="progress-title">Data Visualization Skills (Chart.js)</div>
-                        <div class="progress-text">80% Complete</div>
-                    </div>
-                    <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
-                    <div class="progress-text">Mastered: Line, bar, pie, doughnut, scatter, bubble charts. Next: Waterfall & Sankey diagrams</div>
-                </div>
-            </div>
-
-            <div class="card" style="margin-top: 32px;">
-                <div class="card-header">
-                    <div class="card-title">📖 Recommended Learning Resources</div>
-                    <div class="card-subtitle">Tools, websites, and materials I use daily</div>
-                </div>
-                <div class="resource-list">
-                    <div class="resource-item">
-                        <div class="resource-icon">🎯</div>
-                        <div class="resource-name">CaseCoach - Consulting Interview Preparation</div>
-                        <a href="https://casecoach.com" class="resource-link" target="_blank">Visit →</a>
-                    </div>
-                    <div class="resource-item">
-                        <div class="resource-icon">📊</div>
-                        <div class="resource-name">Chart.js Documentation - Data Visualization</div>
-                        <a href="https://www.chartjs.org" class="resource-link" target="_blank">Visit →</a>
-                    </div>
-                    <div class="resource-item">
-                        <div class="resource-icon">🏛️</div>
-                        <div class="resource-name">HRERA Official Website - Real Estate Data</div>
-                        <a href="https://haryanarera.gov.in" class="resource-link" target="_blank">Visit →</a>
-                    </div>
-                    <div class="resource-item">
-                        <div class="resource-icon">📈</div>
-                        <div class="resource-name">Bloomberg Terminal - Financial Data & Analytics</div>
-                        <a href="https://www.bloomberg.com/professional" class="resource-link" target="_blank">Visit →</a>
-                    </div>
-                    <div class="resource-item">
-                        <div class="resource-icon">📚</div>
-                        <div class="resource-name">Palantir Foundry - Geo & Network Intelligence</div>
-                        <a href="https://www.palantir.com" class="resource-link" target="_blank">Visit →</a>
-                    </div>
-                    <div class="resource-item">
-                        <div class="resource-icon">💼</div>
-                        <div class="resource-name">McKinsey & Company - Strategy Frameworks</div>
-                        <a href="https://www.mckinsey.com" class="resource-link" target="_blank">Visit →</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>About Me</h3>
-                    <p>Senior analyst-level professional preparing for senior-level consulting interviews with expertise in market research, strategic frameworks, and data-driven company analysis.</p>
-                    <p>Specializing in FMCG, telecom, SaaS, and real estate sector intelligence with advanced data visualization skills.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Expertise</h3>
-                    <p>• Consulting Case Frameworks</p>
-                    <p>• Market & Competitor Analysis</p>
-                    <p>• Real Estate Regulatory Intelligence</p>
-                    <p>• Data Visualization (Chart.js)</p>
-                    <p>• Industry KPIs (FMCG, Telecom, SaaS)</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Location & Contact</h3>
-                    <p>📍 Gurugram, Haryana, India</p>
-                    <p>🎯 Available for consulting opportunities</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link">💼</a>
-                        <a href="#" class="social-link">🐦</a>
-                        <a href="#" class="social-link">📧</a>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border-color);">
-                <p style="font-size: 12px; color: var(--text-muted);">© 2026 Kiran Patidar. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Tab navigation
-        document.querySelectorAll('.nav-tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                this.classList.add('active');
-                document.getElementById(this.getAttribute('data-tab')).classList.add('active');
-            });
-        });
-
-        // Fiscal Year Toggle Function
-        let currentFY = 'FY24';
-        
-        function toggleFiscalYear(year) {
-            currentFY = year;
-            
-            // Update button states
-            document.getElementById('toggleFY24').classList.toggle('active', year === 'FY24');
-            document.getElementById('toggleFY25').classList.toggle('active', year === 'FY25');
-            
-            // Update badge
-            const badge = document.getElementById('yearBadge');
-            badge.classList.remove('badge-fy24', 'badge-fy25');
-            badge.classList.add(year === 'FY24' ? 'badge-fy24' : 'badge-fy25');
-            badge.textContent = year === 'FY24' ? 'FY 2023-24' : 'FY 2024-25';
-            
-            // Toggle KPI data displays
-            document.querySelectorAll('.kpi-data-fy24').forEach(el => {
-                el.classList.toggle('active', year === 'FY24');
-            });
-            document.querySelectorAll('.kpi-data-fy25').forEach(el => {
-                el.classList.toggle('active', year === 'FY25');
-            });
-            
-            // Update chart data based on selected year
-            if (year === 'FY24') {
-                investmentChart.data.datasets[0].data = [45226, 88144];
-                investmentChart.data.labels = ['2023', '2024'];
-                projectChart.data.datasets[0].data = [112, 124];
-                projectChart.data.labels = ['2023', '2024'];
-            } else {
-                investmentChart.data.datasets[0].data = [45226, 88144, 86588];
-                investmentChart.data.labels = ['2023', '2024', '2025'];
-                projectChart.data.datasets[0].data = [112, 124, 131];
-                projectChart.data.labels = ['2023', '2024', '2025'];
-            }
-            investmentChart.update();
-            projectChart.update();
-        }
-
-        // Chart.js configuration
-        Chart.defaults.color = '#8b949e';
-        Chart.defaults.borderColor = '#30363d';
-
-        // Investment Trend Chart
-        const investmentChart = new Chart(document.getElementById('investmentTrendChart'), {
-            type: 'line',
-            data: {
-                labels: ['2023', '2024', '2025'],
-                datasets: [{
-                    label: 'Investment (₹ Cr)',
-                    data: [45226, 88144, 86588],
-                    borderColor: '#58a6ff',
-                    backgroundColor: 'rgba(88, 166, 255, 0.1)',
-                    fill: true,
-                    tension: 0.4
-                }]
-            },
-            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
-        });
-
-        // Project Trend Chart
-        const projectChart = new Chart(document.getElementById('projectTrendChart'), {
-            type: 'bar',
-            data: {
-                labels: ['2023', '2024', '2025'],
-                datasets: [{ label: 'Projects', data: [112, 124, 131], backgroundColor: '#3fb950' }]
-            },
-            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
-        });
-
-        // Unit Composition Chart
-        new Chart(document.getElementById('unitCompositionChart'), {
-            type: 'doughnut',
-            data: {
-                labels: ['Group Housing', 'Mixed-Use', 'RDU', 'Affordable', 'Deen Dayal'],
-                datasets: [{ data: [55, 18, 13, 7, 6], backgroundColor: ['#58a6ff', '#3fb950', '#d29922', '#f85149', '#a371f7'] }]
-            },
-            options: { responsive: true, maintainAspectRatio: false }
-        });
-
-        // Segment Donut Chart
-        new Chart(document.getElementById('segmentDonutChart'), {
-            type: 'doughnut',
-            data: {
-                labels: ['Mid-Market', 'Luxury', 'Affordable'],
-                datasets: [{ data: [55, 32, 13], backgroundColor: ['#58a6ff', '#d29922', '#3fb950'] }]
-            },
-            options: { responsive: true, maintainAspectRatio: false }
-        });
-
-        // Promoter Ranking Chart
-        new Chart(document.getElementById('promoterRankingChart'), {
-            type: 'bar',
-            data: {
-                labels: ['SOBHA', 'DLF', 'JMD', 'Emaar', 'Max Estates', 'Omaxe'],
-                datasets: [{ label: 'Projects', data: [12, 8, 7, 6, 5, 5], backgroundColor: '#58a6ff' }]
-            },
-            options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
-        });
-
-        // Sector Heatmap Chart
-        new Chart(document.getElementById('sectorHeatmapChart'), {
-            type: 'bar',
-            data: {
-                labels: ['106', '108', '80', '65', '114', '115', '79', '37D'],
-                datasets: [{ label: 'Project Intensity', data: [25, 22, 18, 15, 14, 12, 10, 8], backgroundColor: '#58a6ff' }]
-            },
-            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
-        });
-
-        // Agent Pie Chart
-        new Chart(document.getElementById('agentPieChart'), {
-            type: 'pie',
-            data: {
-                labels: ['Individual (75%)', 'Proprietorship (10%)', 'Company (15%)'],
-                datasets: [{ data: [75, 10, 15], backgroundColor: ['#58a6ff', '#d29922', '#3fb950'] }]
-            },
-            options: { responsive: true, maintainAspectRatio: false }
-        });
-    </script>
-</body>
-</html>
+                        <div class="timeline-date">Present</div>
+                        <div class="timeline-title">Strategy Consultant</div>
+                        <div class="timeline-comp
