@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kiran Patidar | Strategy Consultant @ EY Parthenon | IIM Kozhikode</title>
+    <title>Kiran Patidar | Strategy Consultant & Real Estate Intelligence</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -22,17 +22,17 @@
             --accent-purple: #a371f7;
             --accent-cyan: #39c5cf;
         }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
         .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
         
-        /* Header */
-        header { background: var(--bg-secondary); border-bottom: 1px solid var(--border-color); padding: 20px 0; position: sticky; top: 0; z-index: 1000; }
+        /* ------------------ GLOBAL HEADER ------------------ */
+        header { background: var(--bg-secondary); border-bottom: 1px solid var(--border-color); padding: 20px 0; position: sticky; top: 0; z-index: 2000; }
         .header-content { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 24px; font-weight: 700; color: var(--accent-blue); }
         .logo span { color: var(--text-primary); }
         
         /* Navigation Tabs */
-        .nav-tabs { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
+        .nav-tabs { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap;}
         .nav-tab { 
             padding: 12px 24px; 
             background: var(--bg-tertiary); 
@@ -48,160 +48,141 @@
         .nav-tab.active { background: var(--accent-blue); color: var(--bg-primary); border-color: var(--accent-blue); }
         
         /* Tab Content */
-        .tab-content { display: none; padding: 40px 0; min-height: calc(100vh - 180px); }
+        .tab-content { display: none; min-height: calc(100vh - 180px); }
         .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
+        .tab-padded { padding: 40px 0; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        
-        /* Professional Journey Tab - HERO SECTION WITH PROFILE PICTURE */
+
+        /* ------------------ TAB 1: PROFESSIONAL JOURNEY ------------------ */
         .hero-section { text-align: center; padding: 60px 0; }
+        .hero-name { font-size: 48px; font-weight: 700; margin-bottom: 16px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-title { font-size: 24px; color: var(--text-secondary); margin-bottom: 12px; }
+        .hero-location { display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: 14px; margin-bottom: 24px; }
         
-        /* Profile Picture Styles */
-        .profile-image-container {
-            margin-bottom: 24px;
-        }
-        .profile-image {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--accent-blue);
-            box-shadow: 0 8px 32px rgba(88, 166, 255, 0.3);
-            transition: all 0.3s ease;
-        }
-        .profile-image:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 48px rgba(88, 166, 255, 0.5);
-        }
+        .bio-text { max-width: 800px; margin: 0 auto 40px; color: var(--text-secondary); font-size: 16px; text-align: justify; line-height: 1.8; }
         
-        .hero-name { font-size: 48px; font-weight: 700; margin-bottom: 12px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-title { font-size: 22px; color: var(--text-secondary); margin-bottom: 12px; font-weight: 500; }
-        .hero-subtitle { font-size: 16px; color: var(--accent-cyan); margin-bottom: 16px; font-weight: 500; }
-        .hero-location { display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: 14px; margin-bottom: 20px; }
-        .hero-stats { display: flex; gap: 24px; justify-content: center; margin-top: 24px; flex-wrap: wrap; }
-        .stat-item { text-align: center; }
-        .stat-value { font-size: 24px; font-weight: 700; color: var(--accent-blue); }
-        .stat-label { font-size: 12px; color: var(--text-secondary); }
-        
-        /* ... rest of your existing CSS ... */
-        
-        .timeline { max-width: 1000px; margin: 40px auto; position: relative; }
-        .timeline::before { content: ''; position: absolute; left: 50%; transform: translateX(-50%); width: 3px; height: 100%; background: linear-gradient(to bottom, var(--accent-blue), var(--accent-purple)); border-radius: 2px; }
-        .timeline-item { display: flex; justify-content: flex-end; padding-bottom: 50px; position: relative; width: 50%; }
+        .timeline { max-width: 900px; margin: 40px auto; position: relative; }
+        .timeline::before { content: ''; position: absolute; left: 50%; transform: translateX(-50%); width: 2px; height: 100%; background: var(--border-color); }
+        .timeline-item { display: flex; justify-content: flex-end; padding-bottom: 40px; position: relative; width: 50%; }
         .timeline-item:nth-child(even) { justify-content: flex-start; margin-left: 50%; }
-        .timeline-content { background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary)); border: 1px solid var(--border-color); border-radius: 12px; padding: 28px; width: 92%; position: relative; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
-        .timeline-content:hover { border-color: var(--accent-blue); transform: translateY(-4px); box-shadow: 0 8px 24px rgba(88, 166, 255, 0.2); }
-        .timeline-content::before { content: ''; position: absolute; width: 20px; height: 20px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); border-radius: 50%; top: 28px; border: 3px solid var(--bg-primary); }
-        .timeline-item:nth-child(odd) .timeline-content::before { right: -38px; }
-        .timeline-item:nth-child(even) .timeline-content::before { left: -38px; }
-        .timeline-date { display: inline-block; font-size: 12px; color: var(--accent-blue); font-weight: 700; margin-bottom: 12px; padding: 4px 12px; background: rgba(88, 166, 255, 0.1); border-radius: 20px; }
-        .timeline-title { font-size: 20px; font-weight: 700; margin-bottom: 8px; color: var(--text-primary); }
-        .timeline-company { font-size: 15px; color: var(--accent-cyan); font-weight: 600; margin-bottom: 10px; }
-        .timeline-subtitle { font-size: 14px; color: var(--text-secondary); margin-bottom: 14px; font-style: italic; }
-        .timeline-desc { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
-        .timeline-tags { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
-        .timeline-tag { background: rgba(88, 166, 255, 0.15); color: var(--accent-blue); padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+        .timeline-content { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 24px; width: 90%; position: relative; }
+        .timeline-content::before { content: ''; position: absolute; width: 16px; height: 16px; background: var(--accent-blue); border-radius: 50%; top: 24px; }
+        .timeline-item:nth-child(odd) .timeline-content::before { right: -32px; }
+        .timeline-item:nth-child(even) .timeline-content::before { left: -32px; }
+        .timeline-date { font-size: 12px; color: var(--accent-blue); font-weight: 600; margin-bottom: 8px; }
+        .timeline-title { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+        .timeline-subtitle { font-size: 14px; color: var(--text-secondary); margin-bottom: 12px; }
+        .timeline-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
         
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin: 50px 0; }
-        .skill-card { background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary)); border: 1px solid var(--border-color); border-radius: 10px; padding: 24px; text-align: center; transition: all 0.3s ease; }
-        .skill-card:hover { border-color: var(--accent-blue); transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); }
-        .skill-icon { font-size: 36px; margin-bottom: 14px; }
-        .skill-name { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
-        .skill-level { font-size: 12px; color: var(--text-secondary); }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 40px 0; }
+        .skill-card { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; text-align: center; }
+        .skill-icon { font-size: 32px; margin-bottom: 12px; }
+        .skill-name { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+
+        /* ------------------ TAB 2: INSIGHTS DASHBOARD ------------------ */
+        .app-container { display: flex; max-width: 1400px; margin: 0 auto; border-left: 1px solid var(--border-color); border-right: 1px solid var(--border-color); }
+        .sidebar { width: 280px; background: var(--bg-secondary); border-right: 1px solid var(--border-color); position: sticky; top: 110px; height: calc(100vh - 110px); overflow-y: auto; z-index: 1000; flex-shrink: 0; }
+        .logo-section { padding: 20px; border-bottom: 1px solid var(--border-color); background: linear-gradient(135deg, var(--bg-tertiary), var(--bg-secondary)); }
+        .logo-title { font-size: 18px; font-weight: 700; color: var(--accent-blue); margin-bottom: 5px; }
+        .logo-subtitle { font-size: 11px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; }
+        .nav-menu { padding: 10px 0; }
+        .dash-nav-item { padding: 14px 20px; cursor: pointer; border-left: 3px solid transparent; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--text-secondary); }
+        .dash-nav-item:hover { background: var(--bg-tertiary); color: var(--text-primary); }
+        .dash-nav-item.active { background: rgba(88, 166, 255, 0.15); color: var(--accent-blue); border-left-color: var(--accent-blue); }
+        .nav-icon { width: 18px; height: 18px; font-size: 16px; }
         
-        .education-section { margin: 60px 0; }
-        .education-card { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 24px; margin-bottom: 16px; display: flex; align-items: center; gap: 20px; transition: all 0.3s ease; }
-        .education-card:hover { border-color: var(--accent-blue); transform: translateX(4px); }
-        .education-icon { font-size: 32px; }
-        .education-info { flex: 1; }
-        .education-degree { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
-        .education-institution { font-size: 14px; color: var(--accent-cyan); margin-bottom: 4px; }
-        .education-year { font-size: 12px; color: var(--text-muted); }
+        .main-content { flex: 1; padding: 0; min-width: 0; }
         
-        /* Market Insights Tab */
-        .insights-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; flex-wrap: wrap; gap: 16px; }
-        .insights-title-block h1 { font-size: 36px; font-weight: 700; margin-bottom: 8px; }
-        .insights-title-block p { font-size: 16px; color: var(--text-secondary); }
-        
-        .comparative-toggle { display: flex; align-items: center; gap: 12px; background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 8px; padding: 4px; }
-        .toggle-label { font-size: 12px; font-weight: 600; color: var(--text-secondary); padding: 8px 12px; }
-        .toggle-btn { padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.2s ease; }
+        /* Header & Toggles */
+        .dash-header { background: var(--bg-secondary); border-bottom: 1px solid var(--border-color); padding: 16px 24px; position: sticky; top: 110px; z-index: 100; display: flex; justify-content: space-between; align-items: center; }
+        .header-title { font-size: 20px; font-weight: 600; margin-bottom: 4px; }
+        .header-subtitle { font-size: 12px; color: var(--text-secondary); }
+        .header-actions { display: flex; align-items: center; gap: 12px; }
+        .comparative-toggle { display: flex; align-items: center; background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 8px; padding: 4px; }
+        .toggle-btn { padding: 8px 16px; border: none; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; transition: all 0.2s ease; background: transparent; color: var(--text-secondary); }
         .toggle-btn.active { background: var(--accent-blue); color: var(--bg-primary); }
-        .toggle-btn:not(.active) { background: transparent; color: var(--text-primary); }
-        .toggle-btn:hover:not(.active) { background: var(--bg-secondary); }
+        .toggle-btn:not(.active):hover { color: var(--text-primary); }
         
-        .fiscal-year-badge { display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-left: 12px; }
-        .badge-fy24 { background: rgba(88, 166, 255, 0.15); color: var(--accent-blue); border: 1px solid var(--accent-blue); }
-        .badge-fy25 { background: rgba(63, 185, 80, 0.15); color: var(--accent-green); border: 1px solid var(--accent-green); }
+        .content-area { padding: 24px; min-height: calc(100vh - 180px); background: var(--bg-primary); }
         
-        .kpi-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 32px; }
+        .module { display: none; }
+        .module.active { display: block; animation: fadeIn 0.3s ease; }
+
+        /* Shared Dashboard Elements */
+        .kpi-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 24px; }
         .kpi-card { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 16px; transition: all 0.2s ease; }
-        .kpi-card:hover { border-color: var(--accent-blue); transform: translateY(-2px); }
+        .kpi-card:hover { border-color: var(--accent-blue); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); }
         .kpi-label { font-size: 11px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
         .kpi-value { font-size: 28px; font-weight: 700; margin-bottom: 6px; font-family: 'SF Mono', monospace; }
         .kpi-trend { display: flex; align-items: center; gap: 4px; font-size: 12px; }
         .trend-up { color: var(--accent-green); }
         .trend-down { color: var(--accent-red); }
         .kpi-subtext { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 24px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 24px; }
+        @media (max-width: 1024px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } .sidebar { width: 220px; } }
+        @media (max-width: 768px) { .app-container { flex-direction: column; } .sidebar { width: 100%; height: auto; position: static; border-right: none; border-bottom: 1px solid var(--border-color); } .dash-header { top: 0; position: static; flex-direction: column; align-items: flex-start; gap: 16px; } }
         
-        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 32px; }
-        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 32px; }
-        @media (max-width: 1024px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
-        @media (max-width: 768px) { 
-            .timeline::before { left: 20px; } 
-            .timeline-item { width: 100%; margin-left: 0 !important; justify-content: flex-start !important; padding-left: 50px; } 
-            .timeline-content::before { left: 12px !important; }
-            .profile-image { width: 150px; height: 150px; }
-        }
+        .card { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; }
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
+        .card-title { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+        .card-subtitle { font-size: 11px; color: var(--text-secondary); margin-top: 2px; }
+        .chart-container { position: relative; height: 280px; margin-top: 10px; width: 100%; }
         
-        .card { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 24px; }
-        .card-header { margin-bottom: 16px; }
-        .card-title { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
-        .card-subtitle { font-size: 12px; color: var(--text-secondary); }
-        .chart-container { position: relative; height: 300px; margin-top: 16px; }
-        
-        .insight-box { background: var(--bg-tertiary); border-left: 3px solid var(--accent-blue); padding: 16px; margin-top: 16px; border-radius: 0 6px 6px 0; }
+        .insight-box { background: var(--bg-tertiary); border-left: 3px solid var(--accent-blue); padding: 14px; margin-top: 16px; border-radius: 0 6px 6px 0; }
         .insight-title { font-size: 11px; font-weight: 600; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
-        .insight-content { font-size: 13px; line-height: 1.7; color: var(--text-secondary); }
+        .insight-content { font-size: 12px; line-height: 1.6; color: var(--text-secondary); }
         .insight-content strong { color: var(--text-primary); }
         
-        .data-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 16px; }
+        .table-container { overflow-x: auto; margin-top: 16px; }
+        .data-table { width: 100%; border-collapse: collapse; font-size: 12px; }
         .data-table th { background: var(--bg-tertiary); padding: 12px; text-align: left; font-weight: 600; color: var(--text-secondary); border-bottom: 2px solid var(--border-color); }
-        .data-table td { padding: 12px; border-bottom: 1px solid var(--border-color); }
+        .data-table td { padding: 12px; border-bottom: 1px solid var(--border-color); color: var(--text-primary); }
         .data-table tr:hover td { background: var(--bg-tertiary); }
-        .badge { display: inline-block; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 600; text-transform: uppercase; }
+        .badge { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 10px; font-weight: 600; text-transform: uppercase; }
         .badge-luxury { background: rgba(210, 153, 34, 0.2); color: var(--accent-orange); }
         .badge-mid { background: rgba(88, 166, 255, 0.2); color: var(--accent-blue); }
         .badge-affordable { background: rgba(63, 185, 80, 0.2); color: var(--accent-green); }
         
-        /* Learn with Me Tab */
-        .learn-header { text-align: center; margin-bottom: 48px; }
-        .learn-title { font-size: 36px; font-weight: 700; margin-bottom: 12px; }
-        .learn-subtitle { font-size: 16px; color: var(--text-secondary); }
+        .delta-positive { color: var(--accent-green); }
+        .delta-negative { color: var(--accent-red); }
+        .delta-neutral { color: var(--text-secondary); }
+        .text-center { text-align: center; }
+        .flex-between { display: flex; justify-content: space-between; align-items: center; }
         
-        .progress-section { margin-top: 32px; max-width: 900px; margin-left: auto; margin-right: auto; }
-        .progress-item { background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary)); border: 1px solid var(--border-color); border-radius: 10px; padding: 24px; margin-bottom: 20px; transition: all 0.3s ease; }
-        .progress-item:hover { border-color: var(--accent-blue); transform: translateX(4px); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); }
-        .progress-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
-        .progress-title { font-size: 15px; font-weight: 600; }
-        .progress-bar { height: 10px; background: var(--bg-tertiary); border-radius: 5px; overflow: hidden; margin-bottom: 10px; }
-        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple)); border-radius: 5px; transition: width 0.5s ease; }
+        /* Dynamic Toggling classes */
+        .data-fy24, .data-fy25 { display: none; }
+        .data-fy24.active, .data-fy25.active { display: block; }
+
+        /* ------------------ TAB 3: LEARN WITH ME ------------------ */
+        .learning-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 24px; margin-top: 32px; }
+        .learning-card { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; }
+        .learning-header { background: var(--bg-tertiary); padding: 20px; border-bottom: 1px solid var(--border-color); }
+        .learning-title { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+        .learning-subtitle { font-size: 12px; color: var(--text-secondary); }
+        .learning-content { padding: 20px; }
+        .learning-topic { font-size: 13px; font-weight: 600; color: var(--accent-blue); margin-bottom: 8px; }
+        .learning-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px; }
+        .learning-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+        .tag { background: var(--bg-tertiary); padding: 4px 10px; border-radius: 4px; font-size: 11px; color: var(--text-secondary); }
+        
+        .progress-section { margin-top: 32px; }
+        .progress-item { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; margin-bottom: 16px; }
+        .progress-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .progress-title { font-size: 14px; font-weight: 600; }
+        .progress-bar { height: 8px; background: var(--bg-tertiary); border-radius: 4px; overflow: hidden; margin-bottom: 8px; }
+        .progress-fill { height: 100%; background: var(--accent-blue); border-radius: 4px; transition: width 0.5s ease; }
         .progress-text { font-size: 12px; color: var(--text-secondary); }
         
-        .resource-section { margin-top: 48px; max-width: 900px; margin-left: auto; margin-right: auto; }
-        .resource-card { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 28px; }
-        .resource-card-header { margin-bottom: 20px; }
-        .resource-card-title { font-size: 18px; font-weight: 600; margin-bottom: 6px; }
-        .resource-card-subtitle { font-size: 13px; color: var(--text-secondary); }
-        
         .resource-list { margin-top: 16px; }
-        .resource-item { display: flex; align-items: center; gap: 16px; padding: 16px; background: var(--bg-tertiary); border-radius: 8px; margin-bottom: 12px; transition: all 0.2s ease; }
-        .resource-item:hover { background: rgba(88, 166, 255, 0.1); transform: translateX(4px); }
-        .resource-icon { font-size: 24px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: rgba(88, 166, 255, 0.15); border-radius: 8px; }
-        .resource-name { font-size: 14px; font-weight: 500; flex: 1; }
-        .resource-link { font-size: 12px; color: var(--accent-blue); text-decoration: none; font-weight: 600; }
+        .resource-item { display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--bg-tertiary); border-radius: 6px; margin-bottom: 8px; }
+        .resource-icon { font-size: 20px; }
+        .resource-name { font-size: 13px; font-weight: 500; flex: 1; }
+        .resource-link { font-size: 12px; color: var(--accent-blue); text-decoration: none; }
         .resource-link:hover { text-decoration: underline; }
-        
-        /* Footer */
+
+        /* ------------------ FOOTER ------------------ */
         footer { background: var(--bg-secondary); border-top: 1px solid var(--border-color); padding: 40px 0; margin-top: 60px; }
         .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 32px; }
         .footer-section h3 { font-size: 14px; font-weight: 600; margin-bottom: 16px; color: var(--accent-blue); }
@@ -209,15 +190,6 @@
         .social-links { display: flex; gap: 16px; margin-top: 16px; }
         .social-link { font-size: 20px; color: var(--text-secondary); transition: color 0.2s ease; text-decoration: none; }
         .social-link:hover { color: var(--accent-blue); }
-        
-        .delta-positive { color: var(--accent-green); }
-        .delta-negative { color: var(--accent-red); }
-        .text-center { text-align: center; }
-        
-        .data-fy24, .data-fy25 { display: none; }
-        .data-fy25.active { display: block; }
-        .kpi-data-fy24, .kpi-data-fy25 { display: none; }
-        .kpi-data-fy25.active { display: block; }
     </style>
 </head>
 <body>
@@ -228,36 +200,608 @@
             </div>
             <div class="nav-tabs">
                 <div class="nav-tab active" data-tab="journey">🚀 My Professional Journey</div>
-                <div class="nav-tab" data-tab="insights">📊 Market Insights - Real Estate Sector</div>
+                <div class="nav-tab" data-tab="insights">📊 Market Insights - Real Estate Dashboard</div>
                 <div class="nav-tab" data-tab="learn">📚 Learn with Me</div>
             </div>
         </div>
     </header>
 
-    <!-- Tab 1: Professional Journey WITH PROFILE PICTURE -->
-    <div id="journey" class="tab-content active">
+    <div id="journey" class="tab-content tab-padded active">
         <div class="container">
             <div class="hero-section">
-                <!-- Profile Picture - PLACEHOLDER -->
-                <div class="profile-image-container">
-                    <img src="profile.jpg" alt="Kiran Patidar" class="profile-image">
-                </div>
-                
                 <h1 class="hero-name">Kiran Patidar</h1>
-                <p class="hero-title">Strategy Consultant @ EY-Parthenon</p>
-                <p class="hero-subtitle">IIM Kozhikode Alumna | Architect | AI Business Solution Strategist</p>
+                <p class="hero-title">Strategy Consultant at EY-Parthenon | Architecture & Construction</p>
                 <div class="hero-location">📍 Gurugram, Haryana, India</div>
-                <div class="hero-stats">
-                    <div class="stat-item"><div class="stat-value">4,355+</div><div class="stat-label">LinkedIn Followers</div></div>
-                    <div class="stat-item"><div class="stat-value">500+</div><div class="stat-label">LinkedIn Connections</div></div>
-                    <div class="stat-item"><div class="stat-value">3+</div><div class="stat-label">Years in Consulting</div></div>
-                </div>
+                
+                <p class="bio-text">
+                    A blooming bud, I am constantly growing and driven by curiosity. My professional path bridges the tangible world of architecture and construction with the strategic landscape of business consulting. I focus on human-centric problem solving, sales acceleration, and cost optimization to drive meaningful impact rather than relying on standard corporate jargon. Outside of the boardroom, I find balance and inspiration through reading, writing, painting, traveling, and practicing aerial yoga.
+                </p>
             </div>
 
-            <!-- Rest of timeline continues... -->
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <div class="timeline-date">Present</div>
                         <div class="timeline-title">Strategy Consultant</div>
-                        <div class="timeline-comp
+                        <div class="timeline-subtitle">EY-Parthenon</div>
+                        <div class="timeline-desc">Leading strategic initiatives with a specialized focus on cost optimization, sales acceleration, and business transformation. Leveraging a multi-disciplinary background to navigate complex market entries and growth strategies.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2026</div>
+                        <div class="timeline-title">MBB Case Interview Preparation</div>
+                        <div class="timeline-subtitle">Senior-Level Strategy Frameworks</div>
+                        <div class="timeline-desc">Intensively prepared for senior-level consulting interviews with MBB firms. Mastered frameworks spanning profitability, growth, market entry, and M&A, ensuring rigorous, data-driven analytical capabilities.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Past</div>
+                        <div class="timeline-title">Architecture & Construction</div>
+                        <div class="timeline-subtitle">Industry Foundation</div>
+                        <div class="timeline-desc">Built a solid foundation in the architecture and construction industry, gaining hands-on insight into physical asset development, spatial design, and project lifecycle management.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Ongoing</div>
+                        <div class="timeline-title">HRERA Real Estate Intelligence Platform</div>
+                        <div class="timeline-subtitle">Real Estate Regulatory Analytics Project</div>
+                        <div class="timeline-desc">Developed an executive-grade Real Estate Regulatory Intelligence System for Gurugram using HRERA data. Built a comprehensive dashboard analyzing 877 projects, ₹3 Lakh Cr investment, promoter concentration, and regulatory enforcement.</div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="text-center" style="font-size: 24px; margin: 60px 0 32px;">Core Focus Areas</h2>
+            <div class="skills-grid">
+                <div class="skill-card"><div class="skill-icon">🚀</div><div class="skill-name">Sales Acceleration</div></div>
+                <div class="skill-card"><div class="skill-icon">📉</div><div class="skill-name">Cost Optimization</div></div>
+                <div class="skill-card"><div class="skill-icon">🧠</div><div class="skill-name">Strategic Problem Solving</div></div>
+                <div class="skill-card"><div class="skill-icon">🏗️</div><div class="skill-name">Architecture & Construction</div></div>
+                <div class="skill-card"><div class="skill-icon">📊</div><div class="skill-name">Market Research</div></div>
+                <div class="skill-card"><div class="skill-icon">📈</div><div class="skill-name">Data Analytics & Visualization</div></div>
+                <div class="skill-card"><div class="skill-icon">⚖️</div><div class="skill-name">Regulatory Intelligence</div></div>
+                <div class="skill-card"><div class="skill-icon">💡</div><div class="skill-name">Human-Centric Strategy</div></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="insights" class="tab-content">
+        <div class="app-container">
+            <nav class="sidebar">
+                <div class="logo-section">
+                    <div class="logo-title">🏛️ HRERA Intelligence</div>
+                    <div class="logo-subtitle">Gurugram Regulatory System</div>
+                </div>
+                <div class="nav-menu">
+                    <div class="dash-nav-item active" data-module="command-center"><span class="nav-icon">📊</span><span>Command Center</span></div>
+                    <div class="dash-nav-item" data-module="macro-intelligence"><span class="nav-icon">🌍</span><span>Macro Intelligence Layer</span></div>
+                    <div class="dash-nav-item" data-module="project-intelligence"><span class="nav-icon">🏗️</span><span>Project Intelligence</span></div>
+                    <div class="dash-nav-item" data-module="promoter-intelligence"><span class="nav-icon">👔</span><span>Promoter Intelligence</span></div>
+                    <div class="dash-nav-item" data-module="agent-ecosystem"><span class="nav-icon">🔗</span><span>Agent Ecosystem</span></div>
+                    <div class="dash-nav-item" data-module="enforcement-intelligence"><span class="nav-icon">⚖️</span><span>Regulatory Enforcement</span></div>
+                    <div class="dash-nav-item" data-module="comparative-analysis"><span class="nav-icon">📈</span><span>Comparative Annual Analysis</span></div>
+                </div>
+            </nav>
+
+            <main class="main-content">
+                <div id="command-center" class="module active">
+                    <div class="dash-header">
+                        <div>
+                            <div class="header-title">Executive Command Center</div>
+                            <div class="header-subtitle">Real-time Market Intelligence • Gurugram</div>
+                        </div>
+                        <div class="header-actions">
+                            <div class="comparative-toggle">
+                                <button class="toggle-btn active" onclick="toggleDashboardYear('FY25')">FY 2024-25</button>
+                                <button class="toggle-btn" onclick="toggleDashboardYear('FY24')">FY 2023-24</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-area">
+                        <div class="kpi-strip">
+                            <div class="kpi-card"><div class="kpi-label">Total Projects (Since 2017)</div><div class="kpi-value">877</div><div class="kpi-trend trend-up">↑ Cumulative</div><div class="kpi-subtext">₹3 Lakh Cr invested</div></div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">Annual Investment</div>
+                                <div class="kpi-value data-fy25 active">₹86,588 Cr</div>
+                                <div class="kpi-value data-fy24">₹88,144 Cr</div>
+                                <div class="kpi-trend trend-down data-fy25 active">↓ 1.8% YoY</div>
+                                <div class="kpi-trend trend-up data-fy24">↑ 95% YoY</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">New Projects</div>
+                                <div class="kpi-value data-fy25 active">131</div>
+                                <div class="kpi-value data-fy24">124</div>
+                                <div class="kpi-trend trend-up data-fy25 active">↑ 5.6% YoY</div>
+                                <div class="kpi-trend trend-up data-fy24">↑ 10.7% YoY</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">Residential Units</div>
+                                <div class="kpi-value data-fy25 active">31,455</div>
+                                <div class="kpi-value data-fy24">N/A</div>
+                                <div class="kpi-trend trend-up data-fy25 active">↑ New supply</div>
+                                <div class="kpi-trend trend-down data-fy24">↓ Undisclosed</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">Affordable Housing</div>
+                                <div class="kpi-value data-fy25 active">2,122</div>
+                                <div class="kpi-value data-fy24">N/A</div>
+                                <div class="kpi-trend trend-up data-fy25 active">↑ Priority</div>
+                                <div class="kpi-trend trend-down data-fy24">↓ Undisclosed</div>
+                            </div>
+                            <div class="kpi-card"><div class="kpi-label">Total Agents Registered</div><div class="kpi-value">408+</div><div class="kpi-trend trend-up">↑ RERA</div><div class="kpi-subtext">250 renewals</div></div>
+                        </div>
+                        <div class="grid-2">
+                            <div class="card">
+                                <div class="card-header"><div><div class="card-title">Investment Trajectory Gurugram</div><div class="card-subtitle">Multi-year investment formation trend (₹ Crore)</div></div></div>
+                                <div class="chart-container"><canvas id="investmentTrendChart"></canvas></div>
+                                <div class="insight-box">
+                                    <div class="insight-title">🔍 Insight</div>
+                                    <div class="insight-content"><strong>WHAT:</strong> Investment doubled from ₹45k Cr (2023) to ₹88k Cr (2024), stabilized at ₹86k Cr (2025).<br><strong>WHY:</strong> 2024 luxury corridor surge; 2025 market maturation.<br><strong>SO WHAT:</strong> Watch luxury saturation; mid-market has growth runway.</div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header"><div><div class="card-title">Project Count Trend</div><div class="card-subtitle">Annual project registration volume</div></div></div>
+                                <div class="chart-container"><canvas id="projectTrendChart"></canvas></div>
+                                <div class="insight-box">
+                                    <div class="insight-title">🔍 Insight</div>
+                                    <div class="insight-content"><strong>WHAT:</strong> Projects: 112 (2023) → 124 (2024) → 131 (2025).<br><strong>WHY:</strong> Consistent developer activity; regulatory confidence.<br><strong>SO WHAT:</strong> Supply pipeline healthy; competition intensifying.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-2">
+                            <div class="card">
+                                <div class="card-header"><div><div class="card-title">Unit Composition by Type</div><div class="card-subtitle">Residential unit breakdown</div></div></div>
+                                <div class="chart-container"><canvas id="unitCompositionChart"></canvas></div>
+                                <div class="insight-box">
+                                    <div class="insight-title">🔍 Insight</div>
+                                    <div class="insight-content"><strong>WHAT:</strong> Group housing 55%, Mixed-use 18%, RDU 13%, Affordable 7%.<br><strong>WHY:</strong> Group housing primary delivery model.<br><strong>SO WHAT:</strong> Buyers have diverse options; policy tailwinds for affordable.</div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header"><div><div class="card-title">Commercial Units</div><div class="card-subtitle">Commercial units breakdown</div></div></div>
+                                <div class="chart-container"><canvas id="commercialChart"></canvas></div>
+                                <div class="insight-box">
+                                    <div class="insight-title">🔍 Insight</div>
+                                    <div class="insight-content"><strong>WHAT:</strong> 4,000 commercial units including 168 IT park dedicated.<br><strong>WHY:</strong> Gurugram tech hub driving IT commercial demand.<br><strong>SO WHAT:</strong> Commercial-residential integration = key growth pattern.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="macro-intelligence" class="module">
+                    <div class="dash-header">
+                        <div>
+                            <div class="header-title">Macro Intelligence Layer</div>
+                            <div class="header-subtitle">Economic Context • Investment Formation • Market Structure</div>
+                        </div>
+                        <div class="header-actions">
+                            <div class="comparative-toggle">
+                                <button class="toggle-btn active" onclick="toggleDashboardYear('FY25')">FY 2024-25</button>
+                                <button class="toggle-btn" onclick="toggleDashboardYear('FY24')">FY 2023-24</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-area">
+                        <div class="kpi-strip">
+                            <div class="kpi-card"><div class="kpi-label">State GDP Growth (Industry)</div><div class="kpi-value">8.1%</div><div class="kpi-trend trend-up">↑ Strong</div></div>
+                            <div class="kpi-card"><div class="kpi-label">State GDP Growth (Services)</div><div class="kpi-value">8.4%</div><div class="kpi-trend trend-up">↑ Strong</div></div>
+                            <div class="kpi-card"><div class="kpi-label">Overall State GDP Growth</div><div class="kpi-value">7.6%</div><div class="kpi-trend trend-up">↑ Baseline</div></div>
+                            <div class="kpi-card"><div class="kpi-label">Cumulative Investment</div><div class="kpi-value">₹3L Cr</div><div class="kpi-trend trend-up">↑ Since 2017</div></div>
+                        </div>
+                        <div class="grid-2">
+                            <div class="card">
+                                <div class="card-header"><div><div class="card-title">Gurugram Investment History</div><div class="card-subtitle">Year-wise investment formation (₹ Crore)</div></div></div>
+                                <div class="chart-container"><canvas id="macroInvestmentChart"></canvas></div>
+                                <div class="insight-box">
+                                    <div class="insight-title">🔍 Insight</div>
+                                    <div class="insight-content"><strong>WHAT:</strong> 2017 (₹64k Cr) → 2020 (₹8k Cr) → 2025 (₹86k Cr).<br><strong>WHY:</strong> 2017 RERA rush; 2020 pandemic; 2022-25 luxury boom.<br><strong>SO WHAT:</strong> Market matured beyond RERA disruption.</div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header"><div><div class="card-title">Investment Growth Decomposition</div><div class="card-subtitle">Year-over-year change drivers</div></div></div>
+                                <div class="chart-container"><canvas id="waterfallChart"></canvas></div>
+                                <div class="insight-box">
+                                    <div class="insight-title">🔍 Insight</div>
+                                    <div class="insight-content"><strong>WHAT:</strong> 2023→2024: +95%; 2024→2025: -1.8%.<br><strong>WHY:</strong> 2024 luxury launches; 2025 stabilization.<br><strong>SO WHAT:</strong> Watch luxury saturation; diversify into mid-market.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="project-intelligence" class="module">
+                    <div class="dash-header">
+                        <div>
+                            <div class="header-title">Project Intelligence</div>
+                            <div class="header-subtitle">Sector Clustering • Segment Classification • Promoter Distribution</div>
+                        </div>
+                        <div class="header-actions">
+                            <div class="comparative-toggle">
+                                <button class="toggle-btn active" onclick="toggleDashboardYear('FY25')">FY 2024-25</button>
+                                <button class="toggle-btn" onclick="toggleDashboardYear('FY24')">FY 2023-24</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-area">
+                        <div class="kpi-strip">
+                            <div class="kpi-card"><div class="kpi-label">Active Projects</div><div class="kpi-value">877</div><div class="kpi-subtext">Since 2017</div></div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">New Projects</div>
+                                <div class="kpi-value data-fy25 active">131</div>
+                                <div class="kpi-value data-fy24">124</div>
+                                <div class="kpi-trend trend-up">↑ Growth</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">Avg Investment/Project</div>
+                                <div class="kpi-value data-fy25 active">₹661 Cr</div>
+                                <div class="kpi-value data-fy24">₹711 Cr</div>
+                                <div class="kpi-trend trend-down data-fy25 active">↓ Concentration</div>
+                            </div>
+                            <div class="kpi-card"><div class="kpi-label">Sectors Active</div><div class="kpi-value">45+</div><div class="kpi-subtext">Micro-markets</div></div>
+                        </div>
+                        <div class="grid-2">
+                            <div class="card">
+                                <div class="card-header"><div><div class="card-title">Top Promoters by Project Count</div><div class="card-subtitle">Market concentration analysis</div></div></div>
+                                <div class="chart-container"><canvas id="promoterRankingChart"></canvas></div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header"><div><div class="card-title">Segment Distribution</div><div class="card-subtitle">Affordable vs Mid vs Luxury split</div></div></div>
+                                <div class="chart-container"><canvas id="segmentDonutChart"></canvas></div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header"><div><div class="card-title">Gurugram Sector Heatmap</div><div class="card-subtitle">Project concentration by micro-market</div></div></div>
+                            <div class="chart-container"><canvas id="sectorHeatmapChart"></canvas></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="promoter-intelligence" class="module">
+                    <div class="dash-header">
+                        <div>
+                            <div class="header-title">Promoter Intelligence</div>
+                            <div class="header-subtitle">Concentration Analysis • Market Share • Geographic Focus</div>
+                        </div>
+                        <div class="header-actions">
+                            <div class="comparative-toggle">
+                                <button class="toggle-btn active" onclick="toggleDashboardYear('FY25')">FY 2024-25</button>
+                                <button class="toggle-btn" onclick="toggleDashboardYear('FY24')">FY 2023-24</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-area">
+                        <div class="kpi-strip">
+                            <div class="kpi-card"><div class="kpi-label">Top 5 Promoter Share</div><div class="kpi-value">~45%</div><div class="kpi-trend trend-up">↑ Concentration</div></div>
+                            <div class="kpi-card"><div class="kpi-label">Total Active Promoters</div><div class="kpi-value">180+</div><div class="kpi-subtext">Estimated</div></div>
+                            <div class="kpi-card"><div class="kpi-label">Avg Projects/Promoter</div><div class="kpi-value">4.8</div><div class="kpi-subtext">Fragmented</div></div>
+                            <div class="kpi-card"><div class="kpi-label">Luxury Corridor Share</div><div class="kpi-value">~60%</div><div class="kpi-trend trend-up">↑ DLF, Emaar</div></div>
+                        </div>
+                        <div class="grid-2">
+                            <div class="card">
+                                <div class="card-header"><div><div class="card-title">Promoter Bubble Chart</div><div class="card-subtitle">Project count vs Investment size</div></div></div>
+                                <div class="chart-container"><canvas id="promoterBubbleChart"></canvas></div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header"><div><div class="card-title">Market Share Treemap</div><div class="card-subtitle">Promoter hierarchy by investment share</div></div></div>
+                                <div class="chart-container"><canvas id="promoterTreemapChart"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="agent-ecosystem" class="module">
+                    <div class="dash-header">
+                        <div>
+                            <div class="header-title">Agent Ecosystem</div>
+                            <div class="header-subtitle">Brokerage Structure • Formalization • Institutionalisation</div>
+                        </div>
+                        <div class="header-actions">
+                            <div class="comparative-toggle">
+                                <button class="toggle-btn active" onclick="toggleDashboardYear('FY25')">FY 2024-25</button>
+                                <button class="toggle-btn" onclick="toggleDashboardYear('FY24')">FY 2023-24</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-area">
+                        <div class="kpi-strip">
+                            <div class="kpi-card"><div class="kpi-label">Total Registered Agents</div><div class="kpi-value">408</div><div class="kpi-trend trend-up">↑ Registration</div></div>
+                            <div class="kpi-card"><div class="kpi-label">Renewals Processed</div><div class="kpi-value">250</div><div class="kpi-subtext">61% renewal rate</div></div>
+                            <div class="kpi-card"><div class="kpi-label">Individual Agents</div><div class="kpi-value">~75%</div><div class="kpi-trend trend-down">↓ Fragmented</div></div>
+                            <div class="kpi-card"><div class="kpi-label">Company/Firm Agents</div><div class="kpi-value">~15%</div><div class="kpi-trend trend-up">↑ Institutional</div></div>
+                        </div>
+                        <div class="grid-2">
+                            <div class="card">
+                                <div class="card-header"><div><div class="card-title">Agent Classification Structure</div><div class="card-subtitle">Individual vs Proprietorship vs Company</div></div></div>
+                                <div class="chart-container"><canvas id="agentPieChart"></canvas></div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header"><div><div class="card-title">Agent Growth Trend</div><div class="card-subtitle">Historical registration pattern</div></div></div>
+                                <div class="chart-container"><canvas id="agentGrowthChart"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="enforcement-intelligence" class="module">
+                    <div class="dash-header">
+                        <div>
+                            <div class="header-title">Regulatory Enforcement Intelligence</div>
+                            <div class="header-subtitle">Case Types • Outcomes • Compliance Patterns</div>
+                        </div>
+                        <div class="header-actions">
+                            <div class="comparative-toggle">
+                                <button class="toggle-btn active" onclick="toggleDashboardYear('FY25')">FY 2024-25</button>
+                                <button class="toggle-btn" onclick="toggleDashboardYear('FY24')">FY 2023-24</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-area">
+                        <div class="kpi-strip">
+                            <div class="kpi-card"><div class="kpi-label">Annual Report Compliance</div><div class="kpi-value">Show-cause</div><div class="kpi-subtext">Notices issued</div></div>
+                            <div class="kpi-card"><div class="kpi-label">Initial Penalty</div><div class="kpi-value">₹5 Lakh</div><div class="kpi-subtext">Non-compliance</div></div>
+                            <div class="kpi-card"><div class="kpi-label">Daily Penalty</div><div class="kpi-value">₹10K</div><div class="kpi-subtext">Beyond 60 days</div></div>
+                            <div class="kpi-card"><div class="kpi-label">Max Sec 60 Penalty</div><div class="kpi-value">5% Cost</div><div class="kpi-subtext">False info/breach</div></div>
+                        </div>
+                        <div class="grid-2">
+                            <div class="card">
+                                <div class="card-header"><div><div class="card-title">Enforcement Strictness Trend</div><div class="card-subtitle">Regulatory intensity over time</div></div></div>
+                                <div class="chart-container"><canvas id="enforcementTrendChart"></canvas></div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header"><div><div class="card-title">Compliance Requirements</div><div class="card-subtitle">Developer obligations under RERA</div></div></div>
+                                <div class="chart-container"><canvas id="complianceChart"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="comparative-analysis" class="module">
+                    <div class="dash-header">
+                        <div>
+                            <div class="header-title">Comparative Annual Analysis</div>
+                            <div class="header-subtitle">FY 2023-24 vs FY 2024-25 • Year-over-Year Market Shifts</div>
+                        </div>
+                        <div class="header-actions">
+                            <div class="comparative-toggle">
+                                <button class="toggle-btn active" onclick="toggleDashboardYear('FY25')">FY 2024-25</button>
+                                <button class="toggle-btn" onclick="toggleDashboardYear('FY24')">FY 2023-24</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-area">
+                        <div class="kpi-strip">
+                            <div class="kpi-card">
+                                <div class="kpi-label">Investment Change (YoY)</div>
+                                <div class="kpi-value delta-negative">-₹1,556 Cr</div>
+                                <div class="kpi-trend trend-down">↓ 1.8%</div>
+                                <div class="kpi-subtext">₹88,144 Cr → ₹86,588 Cr</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">Projects Change (YoY)</div>
+                                <div class="kpi-value delta-positive">+7</div>
+                                <div class="kpi-trend trend-up">↑ 5.6%</div>
+                                <div class="kpi-subtext">124 → 131 projects</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">Avg Project Size Change</div>
+                                <div class="kpi-value delta-negative">-₹47 Cr</div>
+                                <div class="kpi-trend trend-down">↓ 6.6%</div>
+                                <div class="kpi-subtext">₹711 Cr → ₹661 Cr</div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <div><div class="card-title">Head-to-Head: FY 2023-24 vs FY 2024-25</div><div class="card-subtitle">Complete comparative analysis</div></div>
+                            </div>
+                            <div class="table-container">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr><th>Metric</th><th>FY 2023-24</th><th>FY 2024-25</th><th>Abs Change</th><th>% Change</th><th>Signal</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td><strong>Total Investment</strong></td><td>₹88,144.21 Cr</td><td>₹86,588 Cr</td><td class="delta-negative">-₹1,556 Cr</td><td class="delta-negative">-1.8%</td><td><span class="badge badge-mid">Stabilization</span></td></tr>
+                                        <tr><td><strong>New Projects</strong></td><td>124</td><td>131</td><td class="delta-positive">+7</td><td class="delta-positive">+5.6%</td><td><span class="badge badge-affordable">Growth</span></td></tr>
+                                        <tr><td><strong>Residential Units</strong></td><td>Not disclosed</td><td>31,455</td><td class="delta-positive">New</td><td class="delta-neutral">N/A</td><td><span class="badge badge-mid">Transparency</span></td></tr>
+                                        <tr><td><strong>Avg Investment/Proj</strong></td><td>₹711 Cr</td><td>₹661 Cr</td><td class="delta-negative">-₹50 Cr</td><td class="delta-negative">-7.0%</td><td><span class="badge badge-mid">Fragmentation</span></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="grid-2" style="margin-top: 24px;">
+                            <div class="card">
+                                <div class="card-header"><div><div class="card-title">Investment Waterfall Analysis</div><div class="card-subtitle">What drove the -₹1,556 Cr shift</div></div></div>
+                                <div class="chart-container"><canvas id="comparativeWaterfallChart"></canvas></div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header"><div><div class="card-title">Projects vs Investment Divergence</div><div class="card-subtitle">Count up, value down</div></div></div>
+                                <div class="chart-container"><canvas id="divergenceChart"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div id="learn" class="tab-content tab-padded">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <h1 style="font-size: 36px; font-weight: 700; margin-bottom: 12px;">📚 Learn with Me</h1>
+                <p style="font-size: 16px; color: var(--text-secondary);">My learning journey in consulting preparation, market research, and data analytics</p>
+            </div>
+
+            <div class="learning-grid">
+                <div class="learning-card">
+                    <div class="learning-header"><div class="learning-title">🎯 Consulting Case Preparation</div><div class="learning-subtitle">Framework Mastery & Interview Prep</div></div>
+                    <div class="learning-content">
+                        <div class="learning-topic">What I'm Learning</div>
+                        <div class="learning-desc">Advanced consulting case frameworks including profitability, growth, market entry, and M&A cases.</div>
+                        <div class="learning-tags"><span class="tag">CaseCoach</span><span class="tag">Victor Cheng</span><span class="tag">Case in Point</span></div>
+                    </div>
+                </div>
+                <div class="learning-card">
+                    <div class="learning-header"><div class="learning-title">📊 Market Research Methodologies</div><div class="learning-subtitle">Industry Analysis & Competitive Intelligence</div></div>
+                    <div class="learning-content">
+                        <div class="learning-topic">What I'm Learning</div>
+                        <div class="learning-desc">Large-scale market research across FMCG, telecom, SaaS, and real estate.</div>
+                        <div class="learning-tags"><span class="tag">Bloomberg Terminal</span><span class="tag">Statista</span><span class="tag">Annual Reports</span></div>
+                    </div>
+                </div>
+                <div class="learning-card">
+                    <div class="learning-header"><div class="learning-title">📈 Data Visualization & Dashboarding</div><div class="learning-subtitle">Chart.js & Executive Dashboards</div></div>
+                    <div class="learning-content">
+                        <div class="learning-topic">What I'm Learning</div>
+                        <div class="learning-desc">Building executive-grade financial dashboards and regulatory intelligence systems using Chart.js.</div>
+                        <div class="learning-tags"><span class="tag">Chart.js</span><span class="tag">D3.js</span><span class="tag">Tableau</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="progress-section">
+                <h2 style="font-size: 24px; font-weight: 600; margin-bottom: 24px;">📊 Learning Progress Tracker</h2>
+                <div class="progress-item">
+                    <div class="progress-header"><div class="progress-title">Consulting Case Framework Mastery</div><div class="progress-text">75% Complete</div></div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div>
+                    <div class="progress-text">Frameworks completed: Profitability, Growth, Market Entry, M&A. Next: Operations cases</div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-header"><div class="progress-title">HRERA Intelligence Platform Development</div><div class="progress-text">90% Complete</div></div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
+                    <div class="progress-text">Completed: KPI dashboards, comparative analysis. Next: Advanced Sankey diagrams</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Me</h3>
+                    <p>Strategy Consultant at EY-Parthenon with a foundation in architecture and construction, specializing in sales acceleration and cost optimization.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Core Focus</h3>
+                    <p>• Strategic Problem Solving</p>
+                    <p>• Sales Acceleration & Optimization</p>
+                    <p>• Real Estate Regulatory Intelligence</p>
+                    <p>• Data Analytics & Visualization</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Location & Contact</h3>
+                    <p>📍 Gurugram, Haryana, India</p>
+                    <p>🎯 Driven by Curiosity</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/kiranpatidar/" class="social-link" target="_blank">💼</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">📧</a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border-color);">
+                <p style="font-size: 12px; color: var(--text-muted);">© 2026 Kiran Patidar. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --------- Main Tab Navigation ---------
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+                document.getElementById(this.getAttribute('data-tab')).classList.add('active');
+            });
+        });
+
+        // --------- Dashboard Module Navigation ---------
+        document.querySelectorAll('.dash-nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.dash-nav-item').forEach(i => i.classList.remove('active'));
+                document.querySelectorAll('.module').forEach(m => m.classList.remove('active'));
+                this.classList.add('active');
+                const moduleId = this.getAttribute('data-module');
+                document.getElementById(moduleId).classList.add('active');
+            });
+        });
+
+        // --------- Dashboard Year Toggle Function ---------
+        function toggleDashboardYear(year) {
+            // Update all toggle buttons state globally
+            document.querySelectorAll('.comparative-toggle').forEach(toggleGroup => {
+                toggleGroup.querySelectorAll('.toggle-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    if ((year === 'FY24' && btn.innerText.includes('23-24')) || 
+                        (year === 'FY25' && btn.innerText.includes('24-25'))) {
+                        btn.classList.add('active');
+                    }
+                });
+            });
+
+            // Update any KPI elements configured to display per year
+            document.querySelectorAll('.data-fy24').forEach(el => {
+                year === 'FY24' ? el.classList.add('active') : el.classList.remove('active');
+            });
+            document.querySelectorAll('.data-fy25').forEach(el => {
+                year === 'FY25' ? el.classList.add('active') : el.classList.remove('active');
+            });
+
+            // If we want to simulate chart data updating:
+            if (typeof investmentChart !== 'undefined') {
+                if (year === 'FY24') {
+                    investmentChart.data.datasets[0].data = [45226, 88144];
+                    investmentChart.data.labels = ['2023', '2024'];
+                    projectChart.data.datasets[0].data = [112, 124];
+                    projectChart.data.labels = ['2023', '2024'];
+                } else {
+                    investmentChart.data.datasets[0].data = [45226, 88144, 86588];
+                    investmentChart.data.labels = ['2023', '2024', '2025'];
+                    projectChart.data.datasets[0].data = [112, 124, 131];
+                    projectChart.data.labels = ['2023', '2024', '2025'];
+                }
+                investmentChart.update();
+                projectChart.update();
+            }
+        }
+
+        // --------- Chart.js Configurations ---------
+        Chart.defaults.color = '#8b949e';
+        Chart.defaults.borderColor = '#30363d';
+        
+        // Command Center
+        const investmentChart = new Chart(document.getElementById('investmentTrendChart'), { type: 'line', data: { labels: ['2023', '2024', '2025'], datasets: [{ label: 'Investment (₹ Cr)', data: [45226, 88144, 86588], borderColor: '#58a6ff', backgroundColor: 'rgba(88, 166, 255, 0.1)', fill: true, tension: 0.4 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } } });
+        const projectChart = new Chart(document.getElementById('projectTrendChart'), { type: 'bar', data: { labels: ['2023', '2024', '2025'], datasets: [{ label: 'Projects', data: [112, 124, 131], backgroundColor: '#3fb950' }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } } });
+        new Chart(document.getElementById('unitCompositionChart'), { type: 'doughnut', data: { labels: ['Group Housing', 'Mixed-Use', 'RDU', 'Affordable', 'Deen Dayal'], datasets: [{ data: [55, 18, 13, 7, 6], backgroundColor: ['#58a6ff', '#3fb950', '#d29922', '#f85149', '#a371f7'] }] }, options: { responsive: true, maintainAspectRatio: false } });
+        new Chart(document.getElementById('commercialChart'), { type: 'pie', data: { labels: ['Commercial Units', 'IT Park Units'], datasets: [{ data: [3832, 168], backgroundColor: ['#58a6ff', '#3fb950'] }] }, options: { responsive: true, maintainAspectRatio: false } });
+
+        // Macro Intelligence
+        new Chart(document.getElementById('macroInvestmentChart'), { type: 'line', data: { labels: ['2017', '2020', '2021', '2022', '2023', '2024', '2025'], datasets: [{ label: 'Investment (₹ Cr)', data: [64042, 8327, 16775, 35480, 45226, 88144, 86588], borderColor: '#58a6ff', backgroundColor: 'rgba(88, 166, 255, 0.1)', fill: true, tension: 0.4 }] }, options: { responsive: true, maintainAspectRatio: false } });
+        new Chart(document.getElementById('waterfallChart'), { type: 'bar', data: { labels: ['2023 Base', '2023→2024', '2024→2025', '2025 Final'], datasets: [{ label: 'Change (₹ Cr)', data: [45226, 42918, -1556, 86588], backgroundColor: ['#30363d', '#3fb950', '#f85149', '#58a6ff'] }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } } });
+
+        // Project Intelligence
+        new Chart(document.getElementById('promoterRankingChart'), { type: 'bar', data: { labels: ['SOBHA', 'DLF', 'JMD', 'Emaar', 'Max', 'Omaxe'], datasets: [{ label: 'Projects', data: [12, 8, 7, 6, 5, 5], backgroundColor: '#58a6ff' }] }, options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } } });
+        new Chart(document.getElementById('segmentDonutChart'), { type: 'doughnut', data: { labels: ['Mid-Market', 'Luxury', 'Affordable'], datasets: [{ data: [55, 32, 13], backgroundColor: ['#58a6ff', '#d29922', '#3fb950'] }] }, options: { responsive: true, maintainAspectRatio: false } });
+        new Chart(document.getElementById('sectorHeatmapChart'), { type: 'bar', data: { labels: ['106', '108', '80', '65', '114', '115', '79', '37D'], datasets: [{ label: 'Project Intensity', data: [25, 22, 18, 15, 14, 12, 10, 8], backgroundColor: '#58a6ff' }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } } });
+
+        // Promoter Intelligence
+        new Chart(document.getElementById('promoterBubbleChart'), { type: 'scatter', data: { datasets: [{ label: 'SOBHA', data: [{x: 12, y: 6000}], backgroundColor: '#58a6ff' }, { label: 'DLF', data: [{x: 8, y: 15000}], backgroundColor: '#d29922' }, { label: 'JMD', data: [{x: 7, y: 3500}], backgroundColor: '#3fb950' }, { label: 'Emaar', data: [{x: 6, y: 8000}], backgroundColor: '#a371f7' }] }, options: { responsive: true, maintainAspectRatio: false, scales: { x: { title: { display: true, text: 'Project Count' }, min: 0, max: 15 }, y: { title: { display: true, text: 'Investment (₹ Cr)' }, min: 0, max: 20000 } } } });
+        new Chart(document.getElementById('promoterTreemapChart'), { type: 'pie', data: { labels: ['Tier-1 (45%)', 'Tier-2 (30%)', 'Tier-3 (25%)'], datasets: [{ data: [45, 30, 25], backgroundColor: ['#58a6ff', '#d29922', '#30363d'] }] }, options: { responsive: true, maintainAspectRatio: false } });
+
+        // Agent & Enforcement Intelligence
+        new Chart(document.getElementById('agentPieChart'), { type: 'pie', data: { labels: ['Individual (75%)', 'Proprietorship (10%)', 'Company (15%)'], datasets: [{ data: [75, 10, 15], backgroundColor: ['#58a6ff', '#d29922', '#3fb950'] }] }, options: { responsive: true, maintainAspectRatio: false } });
+        new Chart(document.getElementById('agentGrowthChart'), { type: 'line', data: { labels: ['2017', '2021', '2024'], datasets: [{ label: 'Total Agents', data: [0, 761, 761], borderColor: '#3fb950', tension: 0.4 }] }, options: { responsive: true, maintainAspectRatio: false } });
+        new Chart(document.getElementById('enforcementTrendChart'), { type: 'bar', data: { labels: ['2023', '2024', '2025'], datasets: [{ label: 'Enforcement Intensity', data: [2, 3, 8], backgroundColor: ['#30363d', '#d29922', '#f85149'] }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } } });
+        new Chart(document.getElementById('complianceChart'), { type: 'doughnut', data: { labels: ['Annual Report', 'Audited Accounts', 'Fund Verification', 'Public Notice'], datasets: [{ data: [30, 25, 25, 20], backgroundColor: ['#58a6ff', '#3fb950', '#d29922', '#a371f7'] }] }, options: { responsive: true, maintainAspectRatio: false } });
+
+        // Comparative Analysis
+        new Chart(document.getElementById('comparativeWaterfallChart'), { type: 'bar', data: { labels: ['FY24 Base', 'New Projects', 'Avg Size Change', 'FY25 Final'], datasets: [{ label: 'Change (₹ Cr)', data: [88144, 4970, -6526, 86588], backgroundColor: ['#30363d', '#3fb950', '#f85149', '#58a6ff'] }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } } });
+        new Chart(document.getElementById('divergenceChart'), { type: 'line', data: { labels: ['FY24', 'FY25'], datasets: [{ label: 'Projects (right axis)', data: [124, 131], borderColor: '#3fb950', yAxisID: 'y1' }, { label: 'Investment (₹ Cr)', data: [88144, 86588], borderColor: '#58a6ff', yAxisID: 'y' }] }, options: { responsive: true, maintainAspectRatio: false, scales: { y: { type: 'linear', display: true, position: 'left' }, y1: { type: 'linear', display: true, position: 'right', grid: { drawOnChartArea: false } } } } });
+    </script>
+</body>
+</html>
