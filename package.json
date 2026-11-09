@@ -1,0 +1,19 @@
+{
+  "name": "kiranpatidar.com",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "An interactive personal universe for Kiran Patidar.",
+  "scripts": {
+    "dev": "node build.mjs --watch",
+    "build": "node build.mjs",
+    "preview": "npx serve dist"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.0"
+  }
+}
